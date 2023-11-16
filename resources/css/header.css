@@ -1,0 +1,126 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+}
+#body{
+    position: relative;
+    height: 100vh;
+}
+nav{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 15px 50px;
+    color: rgb(0, 0, 0);
+    height: 90px;
+    min-width: 200px;
+    border-bottom: 1px solid rgb(204, 201, 201);
+}
+nav #nav-links{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navL{
+    width: 70px;
+}
+.navL a{
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 20px 15px;
+    transition: 0.5s;
+    color: rgb(0, 0, 0);
+}
+.navL a:hover{
+    color: #a1a1a1;
+    transition: 0.5s;
+}
+.hide{
+    top: 90px;
+}
+
+button{
+    padding: 8px 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.custom-button {
+    background-color: white;
+    border: 1px solid black;
+    font-weight: bolder;
+    color: black;
+}
+.custom-button:hover {
+    background-color: #000000; 
+    color: #fff;
+}
+.custom-button:active {
+    background-color:  #000000; 
+    color: #fff; 
+}
+
+@media screen and (max-width:755px){
+    .hamburger{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+        padding: 10px;
+        margin-right: -10px;
+    }
+    .lines{
+        display: block;
+        background-color: rgb(0, 0, 0);
+        height: 2px;
+        width: 30px;
+    }
+    .lines-rotate{
+        background-color: rgb(232, 231, 231);
+        border-radius: 5px;
+    }
+    nav{
+        position: relative;
+        padding: 15px 50px;
+    }
+    ul{
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -300px;
+        right: 0;
+        background-color: white;
+        padding: 35px 0;
+        border-radius: 0 0 10px 10px;
+    }
+    .navL a{
+        color: rgba(12,11,11,0.836);
+    }
+    .navL{
+        text-align: center;
+        width: 90vw;
+    }
+    .navL a:hover{
+        font-weight: bold;
+        color: #191e24;
+        border: none;
+        letter-spacing: 3px;
+    }
+}
+#bagShop{
+    padding-top: 5px;
+    transition: filter 0.5s ease;
+}
+#bagShop:hover{
+    filter: brightness(50%);
+}
