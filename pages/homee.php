@@ -14,7 +14,7 @@
     <?php
         include('../includes/headr.html');
     ?>
-
+    <br><br>
     <center>
         <div class="contenedor">
             <div id="imagen1"><img src="../resources/img/imgRuben/img12.png" alt="" id="imgIzquierda"></div>
@@ -27,7 +27,7 @@
         </div>
     </center>
 
-
+    <br><br><br>
     <div id="secDiv">
         <table>
             <tr>
