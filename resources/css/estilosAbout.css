@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+}
+
+.div1{
+    margin: 0;
+    display: grid;
+    /* justify-items: center; */
+    align-items: center;
+    grid-template-columns: repeat(3, 2fr);
+    grid-template-rows: auto auto;
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 45px;
+}
+
+.div2{
+    background-color: white;
+    /* border: 1px solid black;  */
+    margin: 5px; /* Espacio entre los contenedores */
+    text-align: center;
+    font-family: Gestura Reg,sans-serif;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.div3{
+  background-color: white;
+  /* border: 1px solid black;  */
+  margin: 5px; /* Espacio entre los contenedores */
+  text-align: center;
+  font-family: Gestura Reg,sans-serif;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+.imgIcon{
+    width: 65px;
+    height: 65px;
+    margin-bottom: 18px;
+}
+
+
+#tit1{
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  margin-bottom: 25px;
+}
+
+.seguridadL{
+  text-align: center;
+}
+
+
+/* Estilos para el enlace */
+.link {
+    text-decoration: none; 
+    color: orange; 
+  }
+  
+  .link:hover {
+    color: gray; 
+  }
+  
+
+html {
+    line-height: 1.5;
+    font-family: system-ui,sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* CARRUSEL */
+.slider-container {
+    width: 95%; /* Ancho del contenedor del carrusel */
+    margin: 0 auto; /*Centra el contenedor*/
+    overflow: hidden;
+    margin-bottom: 65px; /*Margen entre en carrusel y la pagina*/
+  }
+  
+  .slider {
+    display: flex;
+  }
+  
+  .slides {
+    display: flex;
+    gap: 15px; /*Espacio entre los slides*/
+    animation: slide 55s linear infinite; /*Duración y repetición de la animación*/
+  }
+  
+  .slide {
+    flex: 0 0 calc(25% - 15px); /* Resta el espacio entre slides */
+  }
+  
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .slide {
+    transition: transform 0.3s ease-in-out; /*transición suave*/
+  }
+  
+  .slide:hover {
+    transform: scale(1.05); /*Agrandar ligeramente al pasar el mouse*/
+  }
+
+  .card-text{
+    margin-top: 10px;
+    text-align: center;
+    font-size: large;
+  }
+
+  .card-body{
+    text-align: center;
+    font-size: large;
+  }
+
+
+  .card{
+    padding: 25px;
+  }
+  
+  /* Movimiento del slider */
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+
+
+
+
+
