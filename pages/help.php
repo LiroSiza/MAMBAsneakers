@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../resources/css/help.css">
 <body>
+    <h2>BuckBama</h2>
     <!-- Contenedor de las cards -->
     <div class="container">
     <h1 class="header">FAQs</h1>
