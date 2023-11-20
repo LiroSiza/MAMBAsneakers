@@ -13,6 +13,7 @@
 nav{
     background-color: white;
     display: flex;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
@@ -20,8 +21,13 @@ nav{
     padding-top: 35px;
     color: rgb(0, 0, 0);
     height: 90px;
+    width: 100%;
     min-width: 200px;
     border-bottom: 1px solid rgb(204, 201, 201);
+}
+#hh{
+    width: 100%;
+    height: 90px;
 }
 #logoImg{
     padding-bottom: 15px;
