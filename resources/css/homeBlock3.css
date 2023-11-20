@@ -6,6 +6,10 @@
     align-items: center;
 
 }
+
+
+
+
 .title{
     margin-top: 60px;
     margin-bottom: 30px;
@@ -20,6 +24,12 @@
     align-items: center;
     width: 70%;
 
+}
+
+@media screen and (max-width:920px){
+    .tresItems{
+        flex-direction: column;
+    }
 }
 
 .image{
