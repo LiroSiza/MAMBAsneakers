@@ -4,6 +4,10 @@
     background: black;
 }
 
+.container{
+    width: 100%;
+}
+
 .container .header{
     margin-top: 30px;
     text-align: center;
@@ -21,25 +25,7 @@
     margin-right: 150px;
 }  
 
-.container .card-container2{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,0.5fr));
-    gap: 30px;
-    padding: 20px;  
-    margin-left: 150px;
-    margin-right: 150px;
-} 
-
 .container .card-container .card{
-    border-radius: 3px;
-    color: white;
-    padding: 30px;
-    box-shadow: white;
-    justify-content: space-around;
-    border: 1px solid white;
-}
-
-.container .card-container2 .card{
     border-radius: 3px;
     color: white;
     padding: 30px;
@@ -70,14 +56,27 @@
 }
 
 .cardImages{
+
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,2fr));
     gap: 30px;
-    margin-left: 155px;
-    margin-right: 150px;
+    margin: 50px 150px 50px 155px;
 }
 
-.img{
-    justify-content: space-around;
+.img {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.9); 
+}
+
+.img:hover {
+    filter: brightness(1.3); 
+    transition: filter 0.3s ease; 
 }
 
