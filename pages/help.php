@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../resources/css/help.css">
 <body>
-    <h2>BuckBama</h2>
+    
     <!-- Contenedor de las cards -->
     <div class="container">
     <h1 class="header">FAQs</h1>
@@ -38,37 +38,79 @@
             correo electrónico.</p>
             <a href="#" class="btn">Leer mas</a>
             </div>
+
+            <div class="card">
+            <h3>¿Qué sucede si mi pedido llega dañado o incompleto?</h3>
+            <br>
+            <p>Si tu pedido llega dañado o
+            incompleto, contáctanos dentro de los 7 días posteriores a la recepción y resolveremos el
+            problema de inmediato. Consulta nuestra política de devoluciones para obtener más detalles.</p>
+            <a href="#" class="btn">Leer mas</a>
+            </div>
+
+            <div class="card">
+            <h3>¿Aceptan devoluciones?</h3>
+            <br>
+            <p>
+            Sí, aceptamos devoluciones dentro de los 30 días posteriores a la
+            recepción de tu pedido. Consulta nuestra política de devoluciones para obtener instrucciones
+            </p>
+            <a href="#" class="btn">Leer mas</a>
+            </div>
+
+            <div class="card">
+            <h3>¿Puedo cambiar el tamaño o el modelo de mis zapatillas después de hacer el pedido?</h3>
+            <br>
+            <p> Sí,
+            ofrecemos cambios de producto dentro de los 14 días posteriores a la recepción del pedido.
+            Consulta nuestra política de cambios para obtener más información.</p>
+            <a href="#" class="btn">Leer mas</a>
+            </div>
+
+            <div class="card">
+            <h3>¿Ofrecen descuentos o promociones especiales?</h3>
+            <br>
+            <p> Sí, periódicamente ofrecemos descuentos
+            y promociones especiales. Mantente informado visitando nuestra página de ofertas o
+            suscribiéndote a nuestro boletín informativo.
+            </p>
+            <a href="#" class="btn">Leer más</a>
+            </div>
+
+            <div class="card">
+            <h3>¿Tienen una tienda física o solo operan en línea?</h3>
+            <br>
+            <p> Actualmente, operamos exclusivamente
+            en línea a través de nuestro sitio web.
+            </p>
+            <a href="#" class="btn">Leer más</a>
+            </div>
+
+            <div class="card">
+            <h3>¿Ofrecen garantías en sus productos?</h3>
+            <br>
+            <p> 
+            Sí, ofrecemos una garantía de calidad de 90 días en
+            todos nuestros productos. Si experimentas algún problema de calidad, contáctanos y lo resolveremos.
+            </p>
+            <a href="#" class="btn">Leer más</a>
+            </div>
+
+            <div class="card">
+            <h3>¿Cuáles son las políticas de devolución en caso de regalos o compras para otras personas?</h3>
+            <br>
+            <p> 
+            Para devoluciones de regalos o compras para otras personas, sigue el mismo
+            proceso de devolución estándar. Te ayudaremos a procesar la devolución y a emitir un
+            reembolso.</p>
+            <a href="#" class="btn">Leer más</a>
+            </div>
+            
     </div>
 
     <!-- Contenedor cards abajo -->
     <div class="card-container2">
-        <div class="card">
-        <h3>¿Qué sucede si mi pedido llega dañado o incompleto?</h3>
-        <br>
-        <p>Si tu pedido llega dañado o
-        incompleto, contáctanos dentro de los 7 días posteriores a la recepción y resolveremos el
-        problema de inmediato. Consulta nuestra política de devoluciones para obtener más detalles.</p>
-        <a href="#" class="btn">Leer mas</a>
-        </div>
-
-        <div class="card">
-        <h3>¿Aceptan devoluciones?</h3>
-        <br>
-        <p>
-        Sí, aceptamos devoluciones dentro de los 30 días posteriores a la
-        recepción de tu pedido. Consulta nuestra política de devoluciones para obtener instrucciones
-        </p>
-        <a href="#" class="btn">Leer mas</a>
-        </div>
-
-        <div class="card">
-        <h3>¿Puedo cambiar el tamaño o el modelo de mis zapatillas después de hacer el pedido?</h3>
-        <br>
-        <p> Sí,
-        ofrecemos cambios de producto dentro de los 14 días posteriores a la recepción del pedido.
-        Consulta nuestra política de cambios para obtener más información.</p>
-        <a href="#" class="btn">Leer mas</a>
-        </div>
+        <
     </div>
 
     <div class="cardImages">
@@ -79,5 +121,7 @@
         <div class="img"><img src="../resources/img/converseHelp.webp" alt="converseHelp"></div>
         <div class="img"><img src="../resources/img/jordanHelp.webp" alt="jordanHelp"></div>
     </div>
+
+    
 </body>
 </html>
