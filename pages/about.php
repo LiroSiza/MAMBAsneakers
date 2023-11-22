@@ -17,6 +17,7 @@
 <?php
         include('../includes/headr.html');
     ?>
+    <h1>Conócenos!</h1>
     <div class="div1" style="align-items: center;">
         <div class="div2">
             <img class="imgIcon" src="../resources/img/imgMichael/sneakers.png" alt="No disponible">
