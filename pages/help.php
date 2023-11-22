@@ -8,12 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../resources/css/help.css">
 <body>
-    
+    <?php
+            include('../includes/headr.html');
+    ?>
     <!-- Contenedor de las cards -->
     <div class="container">
-    <h1 class="header">FAQs</h1>
-    <!-- Contenedor cards arriba -->
-    <div class="card-container">
+        <h1 class="header">FAQs</h1>
+        <!-- Contenedor cards arriba -->
+        <div class="card-container">
             <div class="card">
             <h3>¿Cuáles son las opciones de envío disponibles?</h3>
             <br>
@@ -106,22 +108,22 @@
             <a href="#" class="btn">Leer más</a>
             </div>
             
+        </div>
     </div>
 
-    <!-- Contenedor cards abajo -->
-    <div class="card-container2">
-        <
-    </div>
-
+    
     <div class="cardImages">
         <div class="img"><img src="../resources/img/nikeHelp.webp" alt="nikeHelp"></div>
         <div class="img"><img src="../resources/img/adidasHelp.webp" alt="adidasHelp"></div>
         <div class="img"><img src="../resources/img/newbalanceHelp.webp" alt="newbalanceHelp"></div>
         <div class="img"><img src="../resources/img/asicsHelp.webp" alt="asicsHelp"></div>
-        <div class="img"><img src="../resources/img/converseHelp.webp" alt="converseHelp"></div>
-        <div class="img"><img src="../resources/img/jordanHelp.webp" alt="jordanHelp"></div>
+        <!-- <div class="img"><img src="../resources/img/converseHelp.webp" alt="converseHelp"></div>
+        <div class="img"><img src="../resources/img/jordanHelp.webp" alt="jordanHelp"></div> -->
     </div>
 
+    <?php
+        include('../includes/footer.html');
+    ?>  
     
 </body>
 </html>
