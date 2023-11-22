@@ -2,6 +2,11 @@ body{
     margin: 0;
 }
 
+h1{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+}
+
 .div1{
     margin: 0;
     display: grid;
