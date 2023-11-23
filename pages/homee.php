@@ -1,3 +1,8 @@
+<?php
+    ob_start(); //por si no funciona el header location (activa almacenamiento en buffer de salida)
+    session_start(); //inicia sesion
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
