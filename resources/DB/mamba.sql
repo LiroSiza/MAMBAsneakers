@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 08:07 PM
+-- Generation Time: Nov 23, 2023 at 09:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,17 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `preguntaseguridad`
---
-
-CREATE TABLE `preguntaseguridad` (
-  `Pregunta` varchar(100) NOT NULL,
-  `ID_Pregunta` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `producto`
 --
 
@@ -46,7 +35,9 @@ CREATE TABLE `producto` (
   `Existencia` int(11) NOT NULL,
   `Precio` decimal(10,2) NOT NULL,
   `Imagen` varchar(50) NOT NULL,
-  `Descuento` decimal(10,2) NOT NULL
+  `Descuento` decimal(10,2) NOT NULL,
+  `imagenA` varchar(120) NOT NULL,
+  `imagenB` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -60,7 +51,7 @@ CREATE TABLE `usuario` (
   `Usuario` varchar(50) NOT NULL,
   `Correo_Usr` varchar(50) NOT NULL,
   `Password_Usr` varchar(50) NOT NULL,
-  `PregSeguridad` int(11) NOT NULL,
+  `PregSeguridad` varchar(120) NOT NULL,
   `Nombre_Usr` varchar(50) NOT NULL,
   `RespuestaPregSeg` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -81,12 +72,6 @@ CREATE TABLE `venta` (
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `preguntaseguridad`
---
-ALTER TABLE `preguntaseguridad`
-  ADD PRIMARY KEY (`ID_Pregunta`);
 
 --
 -- Indexes for table `producto`
@@ -113,12 +98,6 @@ ALTER TABLE `venta`
 --
 
 --
--- AUTO_INCREMENT for table `preguntaseguridad`
---
-ALTER TABLE `preguntaseguridad`
-  MODIFY `ID_Pregunta` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
@@ -133,12 +112,6 @@ ALTER TABLE `usuario`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`PregSeguridad`) REFERENCES `preguntaseguridad` (`ID_Pregunta`);
 
 --
 -- Constraints for table `venta`
