@@ -18,7 +18,7 @@
 </head>
 <body>
     <?php
-        include('../includes/headr.html');
+        include('../includes/headr.php');
     ?>
     <br><br>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
