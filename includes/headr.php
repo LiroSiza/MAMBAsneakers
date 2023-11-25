@@ -58,6 +58,9 @@
                                         <div class="form-group text-center">
                                             <small><a href="#" data-toggle="modal" data-target="#modalPassword">Registrar cuenta</a></small>
                                         </div>
+                                        <div class="form-group text-center">
+                                            <small><a href="../pages/recuperarPassword.php"  >Olvidé mi contraseña</a></small>
+                                        </div>
                                     </form>
                                 </li>
                             </ul>
@@ -109,6 +112,7 @@
             </div>
         </div>
         <div id="hh"></div>
+
 
 
 
