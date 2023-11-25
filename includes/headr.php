@@ -124,6 +124,7 @@
             
             <ul id="nav-links">
                 <li class="navL"><a href="homee.php" class="links">Home</a></li>
+                <li class="navL"><a href="shop.php" class="links">Shop</a></li>
                 <li class="navL"><a href="about.php" class="links">About</a></li>
                 <li class="navL"><a href="help.php" class="links">Help</a></li>
                 <li class="navL"><a href="contact.php" class="links">Contact</a></li>
