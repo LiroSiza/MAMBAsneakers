@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2023 a las 07:48:16
+-- Tiempo de generación: 25-11-2023 a las 22:52:13
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -45,22 +45,22 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`ID_Pto`, `Nombre_Pto`, `Categoria`, `Descripcion`, `Existencia`, `Precio`, `Imagen`, `Descuento`, `imagenA`, `imagenB`) VALUES
-(1, 'AMIRI tenis MA-1', 'Hombre', 'Blanco/negro, piel de becerro, diseño a paneles, placa del logo, logo en relieve en el lateral, pane', 15, 18120.00, 'item1.png', 0.00, '', ''),
-(2, 'Converse tenis Chuck 70 Hi', 'Hombre', 'Tenis Chuck 70 Hi de color rojo de Converse.\r\nComposición\r\nSuela: Goma 100%\r\n\r\nExterior: Lona 100%\r\n', 10, 14460.00, 'item2.png', 1000.00, '', ''),
-(3, 'Dolce & Gabbana tenis Portofino', 'Hombre', 'Piel de becerro, parche del logo a un lado, logo en relieve en la parte posterior, puntera redonda, ', 20, 13890.00, 'item3.png', 2300.00, '', ''),
-(4, 'Adidas Forum Low x Bad Bunny', 'Hombre', 'Azul, gamuza, cuero, detalle característico de 3 franjas, puntera redonda, cierre con agujetas en la', 5, 8876.00, 'item4.png', 0.00, '', ''),
-(5, 'Jordan Air Jordan 1 Mid French Blue', 'Hombre', 'Blanco, azul claro, piel de becerro, cierre con agujetas en la parte delantera, plantilla con logo y', 9, 5889.00, 'item5.png', 1200.00, '', ''),
-(6, 'Nike\r\ntenis SB Dunk Low Jarritos', 'Hombre', 'Beige, verde, blanco, piel de becerro, lona, cierre con agujetas en la parte delantera, parche del l', 3, 12772.00, 'item6.png', 0.00, '', ''),
-(7, 'Jordan Air Jordan 1 Low OG SP X Travis Scott', 'Hombre', 'Tenis Air Jordan 1 Low OG SP de Jordan x Travis Scott en cuero de color negro, blanco, beige y azul,', 30, 38192.00, 'item7.png', 0.00, '', ''),
+(1, 'AMIRI tenis MA-1', 'Hombre', 'Blanco/negro, piel de becerro, diseño a paneles, placa del logo, logo en relieve en el lateral', 15, 18120.00, 'item1.png', 0.00, '', ''),
+(2, 'Converse tenis Chuck 70 Hi', 'Hombre', 'Tenis Chuck 70 Hi de color rojo de Converse.\nComposición\nSuela: Goma 100%\nExterior: Lona 100%\n', 10, 14460.00, 'item2.png', 1000.00, '', ''),
+(3, 'Dolce & Gabbana tenis Portofino', 'Hombre', 'Piel de becerro, parche del logo a un lado, logo en relieve en la parte posterior, puntera redonda', 20, 13890.00, 'item3.png', 2300.00, '', ''),
+(4, 'Adidas Forum Low x Bad Bunny', 'Hombre', 'Azul, gamuza, cuero, detalle característico de 3 franjas, puntera redonda, cierre con agujetas', 5, 8876.00, 'item4.png', 0.00, '', ''),
+(5, 'Jordan Air Jordan 1 Mid French Blue', 'Hombre', 'Blanco, azul claro, piel de becerro, cierre con agujetas en la parte delantera, plantilla con logo', 9, 5889.00, 'item5.png', 1200.00, '', ''),
+(6, 'Nike\r\ntenis SB Dunk Low Jarritos', 'Hombre', 'Beige, verde, blanco, piel de becerro, lona, cierre con agujetas en la parte delantera', 3, 12772.00, 'item6.png', 0.00, '', ''),
+(7, 'Jordan Air Jordan 1 Low OG SP X Travis Scott', 'Hombre', 'Tenis Air Jordan 1 Low OG SP de Jordan x Travis Scott en cuero de color negro, blanco, beige y azul', 30, 38192.00, 'item7.png', 0.00, '', ''),
 (8, 'Adidas Yeezy Boost 700 Wave Runner', 'Hombre', 'multicolor, cuero y gamuza, agujetas en la parte delantera, suela gruesa , detalles color naranja', 10, 10564.00, 'item8.png', 0.00, '', ''),
-(9, 'Dolce & Gabbana tenis bajos', 'Mujer', 'Rosa claro, piel de becerro, diseño a paneles, parche del logo en la lengüeta, cierre con agujetas e', 24, 14640.00, 'item9.png', 3000.00, '', ''),
-(10, 'Jordan Air Jordan 1 Mid SE \"Sesame\"', 'Mujer', 'Tenis Air Jordan 1 Mid SE \"Sesame\" en cuero de color blanco, naranja y beige de Jordan con logo Air ', 16, 3811.00, 'item10.png', 0.00, '', ''),
-(11, 'Adidas Yeezy Boost 350 V2 triple White', 'Mujer', 'blanco, puntera redonda, cierre con agujetas en la parte delantera', 18, 9370.00, 'item11.png', 0.00, '', ''),
-(12, 'Nike Air Force 1 x Olivia Kim W', 'Mujer', 'Tenis Air Force 1 07 de Nike x Olivia Kim W en cuero de color blanco de Nike con logo Nike, detalles', 3, 93387.00, 'item12.png', 0.00, '', ''),
-(13, 'Alexander McQueen bajos Oversized', 'Mujer', 'Puntera redonda, cierre con agujetas en la parte delantera, detalle de perforaciones, logo en el con', 16, 22212.00, 'item13.png', 0.00, '', ''),
-(14, 'Valentino Garavani One Stud XL', 'Mujer', 'Tenis One Stud XL de color rosa PP de Valentino Garavani con cuero, detalles Rockstud, logo en relie', 9, 21950.00, 'item14.png', 5400.00, '', ''),
-(15, 'Philipp Plein bajos hexagonal', 'Mujer', 'Blanco/negro, plateado, cuero, logo en relieve en el lateral, placa del logo en la lengüeta, logo en', 12, 79314.00, 'item15.png', 0.00, '', ''),
-(16, 'Prada bajos Double Wheel', 'Mujer', 'Negro, poliéster reciclado, triángulo del logo esmaltado , puntera redonda, cierre con agujetas en l', 23, 25100.00, 'item16.png', 2399.00, '', '');
+(9, 'Dolce & Gabbana tenis bajos', 'Mujer', 'Rosa claro, piel de becerro, diseño a paneles, parche del logo en la lengüeta, cierre con agujetas', 24, 14640.00, 'item9.png', 3000.00, '', ''),
+(10, 'Jordan Air Jordan 1 Mid SE \"Sesame\"', 'Mujer', 'Tenis Air Jordan 1 Mid SE \"Sesame\" en cuero de color blanco, naranja y beige de Jordan con logo Air ', 0, 3811.00, 'item10.png', 0.00, '', ''),
+(11, 'Adidas Yeezy Boost 350 V2 triple White', 'Mujer', 'Blanco, puntera redonda, cierre con agujetas en la parte delantera', 18, 9370.00, 'item11.png', 0.00, '', ''),
+(12, 'Nike Air Force 1 x Olivia Kim W', 'Mujer', 'Tenis Air Force 1 07 de Nike x Olivia Kim W en cuero de color blanco de Nike con logo Nike', 3, 93387.00, 'item12.png', 0.00, '', ''),
+(13, 'Alexander McQueen bajos Oversized', 'Mujer', 'Puntera redonda, cierre con agujetas en la parte delantera, detalle de perforaciones', 16, 22212.00, 'item13.png', 0.00, '', ''),
+(14, 'Valentino Garavani One Stud XL', 'Mujer', 'Tenis One Stud XL de color rosa PP de Valentino Garavani con cuero, detalles Rockstud', 9, 21950.00, 'item14.png', 5400.00, '', ''),
+(15, 'Philipp Plein bajos hexagonal', 'Mujer', 'Blanco/negro, plateado, cuero, logo en relieve en el lateral, placa del logo en la lengüeta', 12, 79314.00, 'item15.png', 0.00, '', ''),
+(16, 'Prada bajos Double Wheel', 'Mujer', 'Negro, poliéster reciclado, triángulo del logo esmaltado, puntera redonda, cierre con agujetas', 23, 25100.00, 'item16.png', 2399.00, '', '');
 
 -- --------------------------------------------------------
 
