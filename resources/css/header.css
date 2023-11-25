@@ -79,6 +79,19 @@ button{
     background-color:  #000000; 
     color: #fff; 
 }
+.custom-button:hover .loginA{
+    color: white;
+}
+
+
+.loginA{
+    text-decoration: none;
+    color: black;
+}
+.loginA:hover{
+    text-decoration: none;
+    color: white;
+}
 
 @media screen and (max-width:920px){
     .hamburger{
