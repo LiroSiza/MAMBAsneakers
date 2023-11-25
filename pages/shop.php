@@ -38,7 +38,7 @@
         $resultado = $conexion -> query($sql);
 
     
-        include('../includes/headr.html');
+        include('../includes/headr.php');
     ?>
 
     <!-- Filtro de categorias -->
@@ -69,22 +69,45 @@
         $id = $row['ID_Pto'];
         $nombre = $row['Nombre_Pto'];
         $categoria = $row['Categoria'];
+        $descripcion = $row['Descripcion'];
         $existencias = $row['Existencia'];
+        $agotado= ($existencias == 0) ? 'text-decoration : line-through ; ' : '';
         $precio = $row['Precio'];
         $imagen_ruta = $row['Imagen'];
         $descuento = $row['Descuento'];
+    
     ?>
 
         
 
         <!-- Card del producto -->
-        <div>
-            <img  src="../resources/img/shopimages/<?php echo $imagen_ruta ?>">
-            <p><?php echo $nombre ?></p>
-            <p>$<?php echo $precio ?></p>
-            <!-- Boton para agregar al carrito -->
-            <button id="<?php echo $item ?>">Carrito</button>
+        <div style="<?php echo $agotado; ?>">
+            <div class="card" style="max-width: 20%;">
+                <div style="text-align: end;">
+                    <button>...</button>
+                </div>
+                <img  src="../resources/img/shopimages/<?php echo $imagen_ruta ?>">
+                <p><?php echo $nombre ?></p>
+                <p><strong>Categoria:</strong> <?php echo $categoria; ?></p>
+                <p><strong>Descripcion:</strong> <?php echo $descripcion; ?></p>
+                <p><strong>Existencias:</strong> <?php echo $existencias; ?></p>
+                <?php if ($descuento>0) : ?>
+                    <p><strong>Precio con descuento: </strong>$<?php echo number_format($precio - $descuento,2); ?></p>
+                    <p><strong>Precio original: </strong>$<?php echo number_format($precio,2); ?></p>
+                <?php else: ?>
+                    <p><strong>Precio: </strong>$<?php echo number_format($precio,2); ?></p>
+                <?php endif; ?>
+                <?php if ($existencias>0) : ?>
+                <!-- Boton para agregar al carrito -->
+                <div style="text-align: end;">
+                <button id="<?php echo $item ?>"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px"></button>
+                </div>
+                <?php else: ?>
+                <p style="color: grey; font-weight:bold;">AGOTADO</p>
+                <?php endif; ?>
+            </div>
         </div>
+        
         
 
     <?php
