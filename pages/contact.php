@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php
-        include('../includes/headr.html');
+        include('../includes/headr.php');
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;

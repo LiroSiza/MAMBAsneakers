@@ -19,7 +19,7 @@
 </head>
 <body>
 <?php
-        include('../includes/headr.html');
+        include('../includes/headr.php');
     ?>
     <h1>Conócenos!</h1>
     <div class="div1" style="align-items: center;">

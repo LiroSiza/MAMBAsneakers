@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../resources/css/help.css">
 <body>
     <?php
-            include('../includes/headr.html');
+            include('../includes/headr.php');
     ?>
     <!-- Contenedor de las cards -->
     <div class="container">
