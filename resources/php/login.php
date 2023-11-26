@@ -34,6 +34,10 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
         $correo=$fila['Correo_Usr'];
         $pregSeguridad=$fila['PregSeguridad'];
 
+        if(!isset($_COOKIE["email"]) && !isset($_COOKIE["password"])){
+            setcookie("email", $correo, time() + 3600, "/");
+            setcookie("password", $palabra_secreta, time() + 3600, "/");
+        }
         
         $stmt->close();
         $conexion->close();
@@ -63,8 +67,7 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
         $stmt->close();
         $conexion->close();
         echo "incorrect";
-
-        //include("../loginIncorrecto.php");
+        header("Location: incorrecto.php");
         
 
     }

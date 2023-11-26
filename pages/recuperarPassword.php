@@ -79,8 +79,8 @@
                         </div> 
                     <?php
                 }else{
-                    echo "Respuesta incorrecta";
                     session_destroy();
+                    header("Location: ../resources/php/incorrecto.php");
                 }
             }
     ?>
@@ -125,8 +125,8 @@
                 </div> 
     <?php
             }else{
-                echo "Correo no registrado";
                 session_destroy();
+                header("Location: ../resources/php/incorrecto.php");
             }
         }else{
     ?>

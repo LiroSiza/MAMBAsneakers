@@ -46,10 +46,10 @@
                                 <li class="px-3 py-2">
                                     <form class="form" role="form" action="../resources/php/login.php" method="post">
                                         <div class="form-group">
-                                            <input name="email" id="emailInput" placeholder="Email" class="form-control form-control-sm" type="email" required="">
+                                            <input name="email" id="emailInput" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["email"];}?> placeholder="Email" class="form-control form-control-sm" type="email" required="">
                                         </div>
                                         <div class="form-group">
-                                            <input name="palabra_secreta" id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                            <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
                                         </div>
                                             
                                         <div class="form-group">
