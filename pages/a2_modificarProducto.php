@@ -63,7 +63,7 @@
         
         if ($check !== false) {
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) { 
-                // Registro en la base de datos
+
                 $idProducto = $_POST["idProducto"];
                 $nombre = $_POST["nombre"];
                 $categoria = $_POST["categoria"];
@@ -73,12 +73,36 @@
                 $descuento = $_POST["descuento"];
                 $file = $_FILES["file"]["name"];
 
+                //Eliminación local de la imagen de manera local
+                $nombreCarpeta = '../resources/img/productos/';
+                // Sentencia preparada
+                $sql1 = "SELECT Imagen FROM producto WHERE ID_Pto = ?";
+
+                $stmt = $conexion->prepare($sql1);
+                $stmt->bind_param("i", $idProducto);
+                $stmt->execute();
+                $stmt->bind_result($imagen);
+                $stmt->fetch();
+                $stmt->close();
+
+                $nombreArchivo = $nombreCarpeta . $imagen;
+
+                if (file_exists($nombreArchivo)) {
+                    if (unlink($nombreArchivo)) {
+                        //  echo 'La imagen ha sido eliminada correctamente.';
+                    } else {
+                    //  echo 'No se pudo eliminar la imagen.';
+                    }
+                } else {
+                    //  echo 'La imagen no existe en la carpeta especificada.';
+                }
+                // Actualización en la base de datos
                 $sql = "UPDATE producto SET Nombre_Pto = '$nombre', Categoria = '$categoria', Descripcion = '$texto', Existencia = '$existencia', Precio = '$precio', Descuento = '$descuento', Imagen = '$file' WHERE ID_Pto = '$idProducto'";
 
                 if ($conexion->query($sql) === TRUE) {
                     ?>
                     <script>
-                        swal("Actualización Completada CON IMAGEN", "Información enviada correctamente", "success");
+                        swal("Actualización Completada", "Información enviada correctamente", "success");
                     </script>
                     <?php
                 } else {
