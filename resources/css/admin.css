@@ -12,9 +12,9 @@ body {
 }
 
 .sidebar {
-    width: 30%;
+    width: 200px;
     padding: 20px;
-    margin-right: 200px;
+    margin-right: 50px;
     background-image: url("../img/imgAdmin/backSidebar.jpg");
     background-size: 100% 100%;
     background-position: center;
@@ -27,6 +27,7 @@ body {
     font-weight: bold;
     margin-bottom: 20px;
     width: 100%;
+    align-items: center;
 }
 
 select, input {
@@ -111,6 +112,7 @@ select, input {
 .main-content {
     flex: 1;
     padding: 20px;
+    width: 100%;
     
 }
 

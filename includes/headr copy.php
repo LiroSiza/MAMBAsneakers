@@ -1,14 +1,14 @@
 <?php
-
     ob_start(); //por si no funciona el header location (activa almacenamiento en buffer de salida)
     session_start(); //inicia sesion
-    // Conexión a la base de datos
-    $servidor='localhost';
-    $cuenta='root';
-    $password='';
-    $bd='mamba';
 
-    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+// Conexión a la base de datos
+$servidor='localhost';
+$cuenta='root';
+$password='';
+$bd='mamba';
+
+$conexion = new mysqli($servidor,$cuenta,$password,$bd);
     mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
 
 
@@ -135,46 +135,27 @@
                 }
                 ?>
                 <li class="navL"><a href="#" class="links"><img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px"/></a></li>
-
-                <?php
-                    if(isset($_SESSION['Nombre_Usr'])){
-                        echo '<li class="navL">Hola '.$_SESSION["Nombre_Usr"].'!</li>';
-                ?>
-                        <button type="button" class="custom-button"><a class="loginA" href="../resources/php/logout.php">Logout</a></button>   
-                               
-                <?php
-                            
-                    }else{
-                ?>
-                        <li class="links" class="navL"><button type="button" id="dropdownMenu1" data-toggle="dropdown" class="custom-button dropdown-toggle">Login <span class="caret"></span></button>
-                        
-                            <ul class="dropdown-menu dropdown-menu-right mt-2">
-                                <li class="px-3 py-2">
-                                    <form class="form" role="form" action="../resources/php/login.php" method="post">
-                                        <div class="form-group">
-                                            <input name="email" id="emailInput" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["email"];}?> placeholder="Email" class="form-control form-control-sm" type="email" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
-                                        </div>
-                                            
-                                        <div class="form-group">
-                                        <button type="submit" name="enviar2" class="btn btn-primary btn-block" style="background-color: rgb(255, 128, 0); border-color: rgb(255, 128, 0);">Login</button>
-                                        </div>
-                                        <div class="form-group text-center">
-                                        <small><a href="#" data-toggle="modal" data-target="#modalPassword" style="color: orange;">Registrar cuenta</a></small>
-                                        </div>
-                                        <div class="form-group text-center">
-                                            <small><a href="../pages/recuperarPassword.php"  style="color: orange;">Olvidé mi contraseña</a></small>
-                                        </div>
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                <?php
-                    }
-                ?>
-
+                <li class="links" class="navL"><button type="button" id="dropdownMenu1" data-toggle="dropdown" class="custom-button dropdown-toggle">Login <span class="caret"></span></button>
+                
+                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                    <li class="px-3 py-2">
+                        <form class="form" role="form" action="php/login.php" method="post">
+                            <div class="form-group">
+                                <input name="email" id="emailInput" placeholder="Email" class="form-control form-control-sm" type="email" required="">
+                            </div>
+                            <div class="form-group">
+                                <input name="palabra_secreta" id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                            </div>
+                                
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                            <div class="form-group text-center">
+                                <small><a href="#" data-toggle="modal" data-target="#modalPassword">Registrar cuenta</a></small>
+                            </div>
+                        </form>
+                    </li>
+                </ul></li>
             </ul>
         </nav>
         
@@ -235,52 +216,7 @@
                 $('#campoRespuesta').addClass('oculto'); //Oculta el campo respuesta al limpiar el formulario
             });
             });
-        </script>
-
-
-
-        <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                const form = document.querySelector('.form');
-                const dropdownMenu = document.querySelector('.dropdown-menu');
-                const registrarCuentaLink = document.querySelector('a[data-target="#modalPassword"]');
-
-                //Evitar que el dropdown se cierre al hacer clic en él
-                dropdownMenu.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                });
-
-                //Abrir el modal al hacer clic en "Registrar cuenta"
-                registrarCuentaLink.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    $('#modalPassword').modal('show');
-                });
-
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-
-                    const windowWidth = 400;
-                    const windowHeight = 300;
-                    const left = (window.screen.width - windowWidth) / 2;
-                    const top = (window.screen.height - windowHeight) / 2;
-
-                    const captchaWindow = window.open('../resources/captcha/captcha.php', 'captcha_window', 'width=500,height=320,top=' + top + ',left=' + left + ',resizable=no,toolbar=no,menubar=no,status=no');
-
-                    window.addEventListener('message', function(event) {
-                        if (event.data === 'captchaVerified') {
-                            form.submit();
-                        }
-                    });
-
-                    const checkCaptcha = setInterval(function() {
-                        if (captchaWindow.closed) {
-                            clearInterval(checkCaptcha);
-                        }
-                    }, 1000);
-                });
-            });
         </script> 
-
     </body>
 </html>
 
