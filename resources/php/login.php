@@ -5,7 +5,7 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
 
 
 
-    $usuario = $_POST["usuario"];
+    $usuario = $_POST["email"];
     $palabra_secreta = $_POST["palabra_secreta"];
 
 
@@ -21,18 +21,23 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
          die('Error en la conexion');
     }
     
-   $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Usuario = ? AND Password_Usr = ?");
+   $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Correo_Usr = ? AND Password_Usr = ?");
    $stmt->bind_param('ss', $usuario, $palabra_secreta); 
    $stmt->execute();
    $res = $stmt->get_result();
 
     if($res->num_rows>0){
         $fila=$res->fetch_assoc();
+        $usuario=$fila['Usuario'];
         $ID=$fila['ID'];
         $Nombre_Usr=$fila['Nombre_Usr'];
         $correo=$fila['Correo_Usr'];
         $pregSeguridad=$fila['PregSeguridad'];
 
+        if(!isset($_COOKIE["email"]) && !isset($_COOKIE["password"])){
+            setcookie("email", $correo, time() + 3600, "/");
+            setcookie("password", $palabra_secreta, time() + 3600, "/");
+        }
         
         $stmt->close();
         $conexion->close();
@@ -62,8 +67,7 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
         $stmt->close();
         $conexion->close();
         echo "incorrect";
-
-        //include("../loginIncorrecto.php");
+        header("Location: incorrecto.php");
         
 
     }

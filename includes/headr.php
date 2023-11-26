@@ -129,26 +129,46 @@
                 <li class="navL"><a href="help.php" class="links">Help</a></li>
                 <li class="navL"><a href="contact.php" class="links">Contact</a></li>
                 <li class="navL"><a href="#" class="links"><img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px"/></a></li>
-                <li class="links" class="navL"><button type="button" id="dropdownMenu1" data-toggle="dropdown" class="custom-button dropdown-toggle">Login <span class="caret"></span></button>
-                
-                <ul class="dropdown-menu dropdown-menu-right mt-2">
-                    <li class="px-3 py-2">
-                        <form class="form" role="form" action="../resources/php/login.php" method="post">
-                            <div class="form-group">
-                                <input name="email" id="emailInput" placeholder="Email" class="form-control form-control-sm" type="email" required="">
-                            </div>
-                            <div class="form-group">
-                                <input name="palabra_secreta" id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" name="enviar2" class="btn btn-primary btn-block" style="background-color: rgb(255, 128, 0); border-color: rgb(255, 128, 0);">Login</button>
-                            </div>
-                            <div class="form-group text-center">
-                                <small><a href="#" data-toggle="modal" data-target="#modalPassword" style="color: rgb(255, 128, 0);">Registrar cuenta</a></small>
-                            </div>
-                        </form>
-                    </li>
-                </ul></li>
+
+                <?php
+                    if(isset($_SESSION['Nombre_Usr'])){
+                        echo '<li class="navL">Hola '.$_SESSION["Nombre_Usr"].'!</li>';
+                ?>
+                        <button type="button" class="custom-button"><a class="loginA" href="../resources/php/logout.php">Logout</a></button>   
+                               
+                <?php
+                            
+                    }else{
+                ?>
+                        <li class="links" class="navL"><button type="button" id="dropdownMenu1" data-toggle="dropdown" class="custom-button dropdown-toggle">Login <span class="caret"></span></button>
+                        
+                            <ul class="dropdown-menu dropdown-menu-right mt-2">
+                                <li class="px-3 py-2">
+                                    <form class="form" role="form" action="../resources/php/login.php" method="post">
+                                        <div class="form-group">
+                                            <input name="email" id="emailInput" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["email"];}?> placeholder="Email" class="form-control form-control-sm" type="email" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                        </div>
+                                            
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <small><a href="#" data-toggle="modal" data-target="#modalPassword">Registrar cuenta</a></small>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <small><a href="../pages/recuperarPassword.php"  >Olvidé mi contraseña</a></small>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                <?php
+                    }
+                ?>
+
             </ul>
         </nav>
         
@@ -193,6 +213,7 @@
             </div>
         </div>
         <div id="hh"></div>
+
 
 
 
