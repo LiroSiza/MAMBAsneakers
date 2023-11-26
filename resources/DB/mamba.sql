@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2023 a las 22:52:13
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2023 at 10:47 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,20 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `mamba`
+-- Database: `mamba`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
   `ID_Pto` int(11) NOT NULL,
   `Nombre_Pto` varchar(50) NOT NULL,
   `Categoria` varchar(100) NOT NULL,
-  `Descripcion` varchar(100) NOT NULL,
+  `Descripcion` varchar(200) NOT NULL,
   `Existencia` int(11) NOT NULL,
   `Precio` decimal(10,2) NOT NULL,
   `Imagen` varchar(50) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`ID_Pto`, `Nombre_Pto`, `Categoria`, `Descripcion`, `Existencia`, `Precio`, `Imagen`, `Descuento`, `imagenA`, `imagenB`) VALUES
@@ -65,23 +65,31 @@ INSERT INTO `producto` (`ID_Pto`, `Nombre_Pto`, `Categoria`, `Descripcion`, `Exi
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
   `ID` int(11) NOT NULL,
   `Usuario` varchar(50) NOT NULL,
   `Correo_Usr` varchar(50) NOT NULL,
-  `Password_Usr` varchar(50) NOT NULL,
+  `Password_Usr` varchar(150) NOT NULL,
   `PregSeguridad` varchar(120) NOT NULL,
   `Nombre_Usr` varchar(50) NOT NULL,
   `RespuestaPregSeg` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`ID`, `Usuario`, `Correo_Usr`, `Password_Usr`, `PregSeguridad`, `Nombre_Usr`, `RespuestaPregSeg`) VALUES
+(1, 'rob13', 'robertfillingham@hotmail.com', '$2y$10$O74fiZdda5kU3QCK40NS8u7tNy9BFECyD.809RPk60V3YNHXKiDTq', '¿Cual es tu mascota favorita?', 'Robert', 'Perro'),
+(2, 'admin', 'mamba_sneakers@outlook.com', '$2y$10$RE3h20IgZx5FTFfGXheCSuHK5EaAR5I05bL7/bLkkO1mQGx/8EqX2', '¿Cual es tu mascota favorita?', 'admin', 'perro');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta`
+-- Table structure for table `venta`
 --
 
 CREATE TABLE `venta` (
@@ -92,51 +100,51 @@ CREATE TABLE `venta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`ID_Pto`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `PregSeguridad` (`PregSeguridad`);
 
 --
--- Indices de la tabla `venta`
+-- Indexes for table `venta`
 --
 ALTER TABLE `venta`
   ADD KEY `ID_Cte` (`ID_Cte`),
   ADD KEY `Id_Prod` (`Id_Prod`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
   MODIFY `ID_Pto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `venta`
+-- Constraints for table `venta`
 --
 ALTER TABLE `venta`
   ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`ID_Cte`) REFERENCES `usuario` (`ID`),
