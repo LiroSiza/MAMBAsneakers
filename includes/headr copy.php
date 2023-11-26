@@ -1,14 +1,14 @@
 <?php
-
     ob_start(); //por si no funciona el header location (activa almacenamiento en buffer de salida)
     session_start(); //inicia sesion
-    // Conexión a la base de datos
-    $servidor='localhost';
-    $cuenta='root';
-    $password='';
-    $bd='mamba';
 
-    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+// Conexión a la base de datos
+$servidor='localhost';
+$cuenta='root';
+$password='';
+$bd='mamba';
+
+$conexion = new mysqli($servidor,$cuenta,$password,$bd);
     mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
 
 
