@@ -153,13 +153,13 @@
                                         </div>
                                             
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                        <button type="submit" name="enviar2" class="btn btn-primary btn-block" style="background-color: rgb(255, 128, 0); border-color: rgb(255, 128, 0);">Login</button>
                                         </div>
                                         <div class="form-group text-center">
-                                            <small><a href="#" data-toggle="modal" data-target="#modalPassword">Registrar cuenta</a></small>
+                                        <small><a href="#" data-toggle="modal" data-target="#modalPassword" style="color: orange;">Registrar cuenta</a></small>
                                         </div>
                                         <div class="form-group text-center">
-                                            <small><a href="../pages/recuperarPassword.php"  >Olvidé mi contraseña</a></small>
+                                            <small><a href="../pages/recuperarPassword.php"  style="color: orange;">Olvidé mi contraseña</a></small>
                                         </div>
                                     </form>
                                 </li>
@@ -236,39 +236,45 @@
 
         <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    const form = document.querySelector('.form');
-                    const dropdownMenu = document.querySelector('.dropdown-menu');
+                const form = document.querySelector('.form');
+                const dropdownMenu = document.querySelector('.dropdown-menu');
+                const registrarCuentaLink = document.querySelector('a[data-target="#modalPassword"]');
 
-                    dropdownMenu.addEventListener('click', function(event) {
-                        event.stopPropagation(); // Evitar que se propague el evento de clic en el menú desplegable
-                    });
-
-                    form.addEventListener('submit', function(event) {
-                        event.preventDefault();
-
-                        const windowWidth = 400;
-                        const windowHeight = 300;
-
-                        const left = (window.screen.width - windowWidth) / 2;
-                        const top = (window.screen.height - windowHeight) / 2;
-
-                        const captchaWindow = window.open('../resources/captcha/captcha.php', 'captcha_window', 'width=500,height=320,top=' + top + ',left=' + left + ',resizable=no,toolbar=no,menubar=no,status=no');
-
-                        window.addEventListener('message', function(event) {
-                            if (event.data === 'captchaVerified') {
-                                form.submit();
-                            }
-                        });
-
-                        const checkCaptcha = setInterval(function() {
-                            if (captchaWindow.closed) {
-                                clearInterval(checkCaptcha);
-                            }
-                        }, 1000);
-                    });
+                //Evitar que el dropdown se cierre al hacer clic en él
+                dropdownMenu.addEventListener('click', function(event) {
+                    event.stopPropagation();
                 });
-            </script>    
 
+                //Abrir el modal al hacer clic en "Registrar cuenta"
+                registrarCuentaLink.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    $('#modalPassword').modal('show');
+                });
+
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const windowWidth = 400;
+                    const windowHeight = 300;
+                    const left = (window.screen.width - windowWidth) / 2;
+                    const top = (window.screen.height - windowHeight) / 2;
+
+                    const captchaWindow = window.open('../resources/captcha/captcha.php', 'captcha_window', 'width=500,height=320,top=' + top + ',left=' + left + ',resizable=no,toolbar=no,menubar=no,status=no');
+
+                    window.addEventListener('message', function(event) {
+                        if (event.data === 'captchaVerified') {
+                            form.submit();
+                        }
+                    });
+
+                    const checkCaptcha = setInterval(function() {
+                        if (captchaWindow.closed) {
+                            clearInterval(checkCaptcha);
+                        }
+                    }, 1000);
+                });
+            });
+        </script> 
 
     </body>
 </html>
