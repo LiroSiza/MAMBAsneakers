@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAMBA - Shop</title>
     <link rel="stylesheet" href="../resources/css/shop.css">
+    <script src="https://kit.fontawesome.com/a99fa1f648.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <?php
@@ -43,7 +44,7 @@
 
     <!-- Filtro de categorias -->
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-        <label for="filtro">Filtro por categoria:</label>
+        <label for="filtro"><i class="fa-solid fa-filter" style="color: #ff7300;"></i> Filtro por categoria:</label>
         <select name="filtro" id="filtro">
             <?php
                 $query = "SELECT DISTINCT Categoria FROM producto"; 
@@ -62,6 +63,8 @@
         <input type="submit" value="Aplicar">
     </form>    
 
+
+    <div class="card-container">
     <?php
     $item = 0;
     $resultado->data_seek(0);
@@ -78,16 +81,14 @@
     
     ?>
 
-        
-
-        <!-- Card del producto -->
-        <div style="<?php echo $agotado; ?>">
-            <div class="card" style="max-width: 20%;">
+         <!-- Card del producto -->
+        <div>
+            <div class="card">
                 <div style="text-align: end;">
                     <button>...</button>
                 </div>
                 <img  src="../resources/img/shopimages/<?php echo $imagen_ruta ?>">
-                <p><?php echo $nombre ?></p>
+                <center> <p id="nombre" style="<?php echo $agotado; ?>"><?php echo $nombre ?></p></center>
                 <p><strong>Categoria:</strong> <?php echo $categoria; ?></p>
                 <p><strong>Descripcion:</strong> <?php echo $descripcion; ?></p>
                 <p><strong>Existencias:</strong> <?php echo $existencias; ?></p>
@@ -99,24 +100,23 @@
                 <?php endif; ?>
                 <?php if ($existencias>0) : ?>
                 <!-- Boton para agregar al carrito -->
-                <div style="text-align: end;">
-                <button id="<?php echo $item ?>"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px"></button>
+                <div style="text-align: center;">
+                <button id="<?php echo $item ?>" class="carrito"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px">    Agregar al carrito</button>
                 </div>
                 <?php else: ?>
                 <p style="color: grey; font-weight:bold;">AGOTADO</p>
                 <?php endif; ?>
             </div>
         </div>
-        
-        
 
     <?php
             $item = $item+1;
-        }
-
+        } ?>
+    </div> 
+    <?php 
         $conexion->close();
     
         include('../includes/footer.html');
-    ?>  
+    ?>
 </body>
 </html>
