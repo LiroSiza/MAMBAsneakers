@@ -1,11 +1,17 @@
 <?php
-    // Conexión a la base de datos
-    $servidor='localhost';
-    $cuenta='root';
-    $password='';
-    $bd='mamba';
+   // Conexión a la base de datos
+   $servidor='localhost';
+   $cuenta='root';
+   $password='';
+   $bd='mamba';
 
-    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+   $conexion = new mysqli($servidor,$cuenta,$password,$bd);
+   mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
+
+
+   if ($conexion->connect_errno){
+        die('Error en la conexion');
+    }
     mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
 
 

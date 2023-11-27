@@ -11,7 +11,7 @@
 <body>
 
     <?php
-        include('../includes/headr.php');
+        include('../includes/headrAdmin.php');
     ?>
 
     <br>
