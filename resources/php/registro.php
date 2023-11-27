@@ -40,7 +40,6 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                 //pasamos la respuesta a mayusculas y 
                 $resp = $_POST['respuesta'];
                 $resp_Pregunta = mb_strtoupper($resp, 'UTF-8');
-                $_SESSION["respuesta"] = mb_strtoupper($respuesta, 'UTF-8');
 
                 //encritamos la respuesta
                 $resp_Pregunta = password_hash($resp_Pregunta, PASSWORD_BCRYPT);
@@ -52,6 +51,15 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 
                 //Para encriptar la contraseña
                 $contra_enc = password_hash($contra_Usuario, PASSWORD_BCRYPT);
+
+                $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Correo_Usr = ?");
+                $stmt->bind_param('s', $correo_Usuario); 
+                $stmt->execute();
+                $res = $stmt->get_result();
+
+                if($res->num_rows > 0){
+                        header("Location:incorrecto.php?error=1");
+                }
                 
                 //Hacemos cadena con la sentencia mysql para insertar datos
                 $sql = "INSERT INTO usuario (Usuario, Correo_Usr, Password_Usr, PregSeguridad, Nombre_Usr, RespuestaPregSeg) VALUES('$alias_Usuario','$correo_Usuario','$contra_enc','$preguntaSeg','$nom_Usuario','$resp_Pregunta')";
@@ -100,7 +108,9 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                             <span>¡Tu registro ha sido realizado con éxito!</span>
                             <span class="close-btn" onclick="this.parentElement.style.display=\'none\'">&times;</span>
                           </div>';
-                    header("Location: ../../pages/homee.php");
+                    //delay the redirection by 5 seconds so the alert is seen
+
+                    header("refresh:5,  ../../pages/homee.php");
                 }
          }//fin  
     }
