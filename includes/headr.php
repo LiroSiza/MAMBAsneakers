@@ -85,11 +85,12 @@
                         <h3>Registro</h3>
                         <button type="button" class="close font-weight-light" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form class="form" role="form" action="../resources/php/registro.php" method="post">
+                    <form class="form" id="formReg" role="form" name="registrationForm" action="../resources/php/registro.php" method="post">
                         <div class="modal-body">
                             <p>Nombre: <input type="text" name="nombre" required> </p>
                             <p>Cuenta: <input type="text" name="cuenta" required> </p>
-                            <p>Correo: <input type="email" name="email" required> </p>
+                            <p>Correo: <input id="correoInput" type="email" name="email" required> </p>
+                            <h6 id="unicaEmail" style="color:red;"></h6>
                             
                             <p>Pregunta de seguridad:
                                 <select name="pregunta" id="pregunta" onchange="mostrarCampoRespuesta()">
@@ -180,7 +181,7 @@
                 });
             });
         </script> 
-
+        
     </body>
 </html>
 

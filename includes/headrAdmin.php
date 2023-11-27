@@ -184,7 +184,19 @@
 
         <script>
             function unico(){
-                
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if(this.responseText == "true"){
+                            return true;
+                        }else{
+                            document.getElementById("unicaCuenta").innerHTML = this.responseText;
+                            return false;
+                        }
+                    }
+                };
+                xhttp.open("GET", "resources/php/unico.php", true);
+                xhttp.send();
             }
         </script>
 
