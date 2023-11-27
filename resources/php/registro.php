@@ -92,6 +92,59 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                             <span>¡Tu registro ha sido realizado con éxito!</span>
                             <span class="close-btn" onclick="this.parentElement.style.display=\'none\'">&times;</span>
                           </div>';
+
+                    if ($conexion->affected_rows >= 1) { // Revisamos que se insertó un registro
+                        // Estilos de la ALERT
+
+                        echo '<style>
+                                .custom-alert {
+                                    position: fixed;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    padding: 25px;
+                                    background-color: #f8f9fa; 
+                                    color: #343a40; 
+                                    border-radius: 10px;
+                                    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+                                    max-width: 600px;
+                                    text-align: center;
+                                }
+                                .highlight {
+                                    color: rgb(255, 128, 0); 
+                                    font-weight: bold;
+                                    margin-bottom: 10px;
+                                }
+                                .close-btn {
+                                    cursor: pointer;
+                                    font-size: 24px;
+                                    font-weight: bold;
+                                    align-self: flex-end;
+                                }
+
+                                .close-btn:hover {
+                                    color: rgb(255, 50, 0); 
+                                }
+
+                            </style>';
+                
+                        echo '<div class="custom-alert">
+                                <span class="highlight">Registro Exitoso</span>
+                                <span>¡Tu registro ha sido realizado con éxito!</span>
+                                <span class="close-btn" onclick="this.parentElement.style.display=\'none\'">&times;</span>
+                            </div>';
+                        
+                        echo '<script>
+                                 setTimeout(function() {
+                                    window.location.href = "../../pages/homee.php";
+                                    }, 3000); // 3000 milisegundos = 3 segundos, Despues de 3 segundos se redirige a la pagina principal, despues de hacer el registro
+                                </script>';
+                          
+                    }
                 }
          }//fin  
     }
