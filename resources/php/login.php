@@ -6,8 +6,9 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
 
 
     $usuario = $_POST["email"];
-    $palabra_secreta = $_POST["palabra_secreta"];
+    $palabra = $_POST["palabra_secreta"];
 
+    $palabra_secreta = password_hash($palabra, PASSWORD_BCRYPT);
 
     $servidor='localhost';
     $cuenta='root';
@@ -21,13 +22,16 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
          die('Error en la conexion');
     }
     
-   $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Correo_Usr = ? AND Password_Usr = ?");
-   $stmt->bind_param('ss', $usuario, $palabra_secreta); 
+   $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Correo_Usr = ?");
+   $stmt->bind_param('s', $usuario); 
    $stmt->execute();
    $res = $stmt->get_result();
 
-    if($res->num_rows>0){
-        $fila=$res->fetch_assoc();
+   $fila=$res->fetch_assoc();
+    $contra=$fila['Password_Usr'];
+
+
+    if(password_verify($palabra, $contra)){
         $usuario=$fila['Usuario'];
         $ID=$fila['ID'];
         $Nombre_Usr=$fila['Nombre_Usr'];
@@ -36,7 +40,7 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
 
         if(!isset($_COOKIE["email"]) && !isset($_COOKIE["password"])){
             setcookie("email", $correo, time() + 3600, "/");
-            setcookie("password", $palabra_secreta, time() + 3600, "/");
+            setcookie("password", $palabra, time() + 3600, "/");
         }
         
         $stmt->close();
@@ -66,7 +70,6 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
          
         $stmt->close();
         $conexion->close();
-        echo "incorrect";
         header("Location: incorrecto.php");
         
 

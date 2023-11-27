@@ -36,7 +36,15 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                 $alias_Usuario =$_POST['cuenta'];
                 $correo_Usuario = $_POST['email'];
                 $preg_Seguridad = $_POST['pregunta'];
-                $resp_Pregunta = $_POST['respuesta'];
+                
+                //pasamos la respuesta a mayusculas y 
+                $resp = $_POST['respuesta'];
+                $resp_Pregunta = mb_strtoupper($resp, 'UTF-8');
+                $_SESSION["respuesta"] = mb_strtoupper($respuesta, 'UTF-8');
+
+                //encritamos la respuesta
+                $resp_Pregunta = password_hash($resp_Pregunta, PASSWORD_BCRYPT);
+
                 $contra_Usuario =$_POST['contra'];
 
                 //Esto es para colocar como tal la pregunta de seguridad en la DB
@@ -92,6 +100,7 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                             <span>¡Tu registro ha sido realizado con éxito!</span>
                             <span class="close-btn" onclick="this.parentElement.style.display=\'none\'">&times;</span>
                           </div>';
+                    header("Location: ../../pages/homee.php");
                 }
          }//fin  
     }
