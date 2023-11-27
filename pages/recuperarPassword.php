@@ -38,6 +38,11 @@
             $stmt->bind_param('ss', $newPassword, $correo); 
             $stmt->execute();
             $res = $stmt->get_result();
+            
+            //nos deshacemos de la cookie que guarda el numero de intentos fallidos
+            setcookie($_SESSION["usAttempts"], 0, time() - 3600, '/');
+            $_SESSION["usAttempts"]="";
+
             header("Location: homee.php");
             
         
