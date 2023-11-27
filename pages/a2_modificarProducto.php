@@ -11,11 +11,8 @@
     <style>
         #contenedor{
             margin-top: 0px;
-            margin-right: 100px;
-            margin-left: 100px;
-            margin-bottom: 100px;
-            padding-right:20%;
-            padding-left:20%;
+            padding-right:5%;
+            padding-left:10%;
         }
         #name{
             width:100%;
@@ -30,11 +27,21 @@
         input[type="submit"]{
             
         }
+        #contenedor-2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 80px;
+        }
+        #bloque{
+            display: flex;
+            margin-bottom:100px;
+        }
     </style>
 </head>
 <body>
 <?php
-        include('../includes/headr.php');
+        include('../includes/headrAdmin.php');
     ?>
 <?php
     // Conexión a la base de datos
@@ -157,6 +164,7 @@
         $data = $result->fetch_assoc();
         ?>
         <div id="name"><p>Editar producto</p></div>
+        <div id="bloque">
     <div id="contenedor">
     <form method="post" action="a2_modificarProducto.php"  enctype="multipart/form-data">
         <fieldset disabled>
@@ -215,6 +223,12 @@
         <center><button type="submit" value="submit3" name="submit3" class="btn btn-primary">Añadir</button></center>
     </form>
     <a href="admin.php"><button class="btn btn-primary">Regresar</button></a>
+    </div>
+    <div id="contenedor-2">
+        <div>
+            <img src="../resources/img/productos/<?php echo htmlspecialchars($data['Imagen']); ?>" alt="imagen de producto">
+        </div>
+    </div>
     </div>
 
     <?php

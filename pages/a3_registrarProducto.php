@@ -92,7 +92,7 @@
 ?>
 
     <?php
-        include('../includes/headr.php');
+        include('../includes/headrAdmin.php');
     ?>
 
     <div id="name"><p>Registro de producto</p></div>
