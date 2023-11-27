@@ -9,18 +9,19 @@ body {
 
 .container {
     display: flex;
+    
 }
 
 .sidebar {
-    width: 200px;
+    width: 250px; 
+    height: 110vh;
     padding: 20px;
+    background-size: cover;
     margin-right: 50px;
     background-image: url("../img/imgAdmin/backSidebar.jpg");
-    background-size: 100% 100%;
     background-position: center;
     border-radius: 4px;
-    border: none;
-   
+    border: none
 }
 
 .search-form {
@@ -112,8 +113,7 @@ select, input {
 .main-content {
     flex: 1;
     padding: 20px;
-    width: 100%;
-    
+
 }
 
 h1 {
