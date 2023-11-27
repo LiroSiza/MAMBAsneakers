@@ -6,18 +6,10 @@
    $bd='mamba';
 
    $conexion = new mysqli($servidor,$cuenta,$password,$bd);
-   mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
 
-
-   if ($conexion->connect_errno){
-        die('Error en la conexion');
-    }
-    mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
-
-
-    if ($conexion->connect_errno){
-         die('Error en la conexion');
-    }
+   if ($conexion->connect_error) {
+       die("Conexión fallida: " . $conexion->connect_error);
+   }
 
     $opc = $_POST["opcion"];
 
@@ -130,7 +122,7 @@
             echo "<td>$" . $row["Precio"] . "</td>";
             echo "<td>$" . $row["Descuento"] . "</td>";
             echo "<td><a href='a2_modificarProducto.php?idProducto=" . urlencode($row["ID_Pto"]) . "' class='btn btn-small btn-warning'><i class='fa-solid fa-pen-to-square'></i></a></td>";
-            echo "<td><a href='#' class='btn btn-small btn-danger'><i class='fa-solid fa-trash-can' data-valor=".$row["ID_Pto"]." onclick='obtenerValor(this)'></i></a></td>";
+            echo "<td><a href='a1_eliminarProducto.php?idProducto=" . urlencode($row["ID_Pto"]) . "' class='btn btn-small btn-danger'><i class='fa-solid fa-trash-can' data-valor=".$row["ID_Pto"]."></i></a></td>";
             echo "</tr>";
         }
     }else {

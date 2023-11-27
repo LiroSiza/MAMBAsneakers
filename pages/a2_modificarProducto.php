@@ -51,10 +51,9 @@
     $bd='mamba';
 
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);
-    mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
 
-    if ($conexion->connect_errno){
-         die('Error en la conexion');
+    if ($conexion->connect_error) {
+        die("Conexión fallida: " . $conexion->connect_error);
     }
 
     if(isset($_POST['submit3'])){
