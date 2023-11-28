@@ -66,6 +66,16 @@
     text-align: left;
 }
 
+.card p {
+    overflow: hidden;
+    max-height: 50px;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.card p.expanded {
+    max-height: none;
+}
+
 .cardImages{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,4fr));
