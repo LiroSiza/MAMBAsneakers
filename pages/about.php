@@ -21,7 +21,21 @@
 <?php
         include('../includes/headr.php');
     ?>
-    <h1>Conócenos!</h1>
+    <h1 id="tituloC">Conócenos!</h1>
+
+
+    <div id="descripcion">
+        <p>
+          Somos Mamba Sneakers, la principal cadena de distribución de calzado deportivo en México y Latinoamérica. 
+          Nuestro compromiso radica en ofrecer una experiencia excepcional a nuestros clientes apasionados por la moda y el estilo de vida asociado a los sneakers. 
+          Como líderes del mercado, nos enorgullecemos de presentar una cuidadosa selección de las marcas más prestigiosas a nivel mundial. 
+          Desde los diseños clásicos hasta las últimas innovaciones, nuestro objetivo es proporcionar exclusividad y calidad en cada par que sale de nuestras tiendas.
+          Nuestra dedicación a la excelencia en el servicio al cliente y nuestro profundo conocimiento de la industria nos posicionan como referente indiscutible para los aficionados a la cultura sneaker.
+          
+        </p>
+    </div>
+
+
     <div class="div1" style="align-items: center;">
         <div class="div2">
             <img class="imgIcon" src="../resources/img/imgMichael/sneakers.png" alt="No disponible">
