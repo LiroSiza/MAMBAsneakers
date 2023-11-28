@@ -54,8 +54,24 @@
                                         <div class="form-group">
                                             <input name="email" id="emailInput" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["email"];}?> placeholder="Email" class="form-control form-control-sm" type="email" required="">
                                         </div>
-                                        <div class="form-group">
-                                            <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                        <?php 
+                                            if(isset($_SESSION["usAttempts"]))
+                                                $attempt = $_SESSION["usAttempts"];
+                                            else
+                                                $attempt = "";
+                                            if(isset($_COOKIE[$attempt]) && $_COOKIE[$attempt] >= 3){
+                                                echo '<small style="color:red; margin-bottom: 10px;">Límite de Intentos.</small><br>';
+                                            }else{
+                                                ?><div class="form-group">
+                                                        <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                                    </div>
+                                                <?php
+                                                //echo $_COOKIE[$attempt];
+                                            }
+                                        ?>
+                                        
+                                        <div class="form-group text-center">
+                                        <input type="checkbox" name="checkbox"><small style="margin-left: 10px;">Guardar Sesión</small>
                                         </div>
                                             
                                         <div class="form-group">
