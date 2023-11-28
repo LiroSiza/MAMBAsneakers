@@ -34,7 +34,8 @@
                     echo '<li class="navL"><a href="admin.php" class="links">Admin</a></li>';
                 }
                 ?>
-                <li class="navL"><a href="#" class="links"><img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px"/></a></li>
+                
+                <li class="navL"><a href="../resources/php/carrito.php" class="links"><img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px"/></a></li>
 
                 <?php
                     if(isset($_SESSION['Nombre_Usr'])){
