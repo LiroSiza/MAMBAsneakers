@@ -30,6 +30,7 @@
         input[type="submit"]{
             
         }
+
     </style>
 </head>
 <body>
@@ -41,10 +42,9 @@
     $bd='mamba';
 
     $conexion = new mysqli($servidor,$cuenta,$password,$bd);
-    mysqli_set_charset($conexion, "utf8"); //Codificación de caracteres
 
-    if ($conexion->connect_errno){
-         die('Error en la conexion');
+    if ($conexion->connect_error) {
+        die("Conexión fallida: " . $conexion->connect_error);
     }
 
     if(isset($_POST['submit2'])){
@@ -92,7 +92,7 @@
 ?>
 
     <?php
-        include('../includes/headr.php');
+        include('../includes/headrAdmin.php');
     ?>
 
     <div id="name"><p>Registro de producto</p></div>
@@ -139,9 +139,9 @@
             <label for="file" class="form-label">Imagen del producto</label>
             <input class="form-control form-control-sm" id="file" type="file" name="file" required>
         </div>
-        <center><button type="submit" value="submit2" name="submit2" class="btn btn-primary">Añadir</button></center>
+        <center><button type="submit" value="submit2" name="submit2" class="btn btn-primary" style="background-color: rgb(255,128,0); border-color:rgb(255,128,0);">Añadir</button></center>
     </form>
-    <a href="admin.php"><button class="btn btn-primary">Regresar</button></a>
+    <a href="admin.php"><button class="btn btn-primary" style="background-color: rgb(255,128,0); border-color:rgb(255,128,0);">Regresar</button></a>
     </div>
     <?php
         include('../includes/footer.html');

@@ -32,10 +32,17 @@
                  die('Error en la conexion');
             }
             
+            $newPassword=password_hash($_POST["password"], PASSWORD_BCRYPT);
+
             $stmt = $conexion->prepare("UPDATE usuario SET Password_Usr = ? WHERE Correo_Usr = ?");
-            $stmt->bind_param('ss', $_POST["password"], $correo); 
+            $stmt->bind_param('ss', $newPassword, $correo); 
             $stmt->execute();
             $res = $stmt->get_result();
+            
+            //nos deshacemos de la cookie que guarda el numero de intentos fallidos
+            setcookie($_SESSION["usAttempts"], 0, time() - 3600, '/');
+            $_SESSION["usAttempts"]="";
+
             header("Location: homee.php");
             
         
@@ -58,12 +65,17 @@
             $res = $stmt->get_result();
 
             $correo=$_SESSION["correoRecover"];
+
+            //pasamos la respuesta del usuario a mayusculas
             $_SESSION["respuesta"]=$_POST["respuesta"];
-        
+            $_SESSION["respuesta"] = mb_strtoupper($_SESSION["respuesta"], 'UTF-8');
+            
+
+            
             if($res->num_rows>0){
                 $fila=$res->fetch_assoc(); 
                 $respSeguridad=$fila['RespuestaPregSeg'];
-                if($respSeguridad==$_POST["respuesta"]){
+                if(password_verify($_SESSION["respuesta"], $respSeguridad)){
                     ?>
                         <div class="recPass">
                             <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
@@ -80,7 +92,9 @@
                     <?php
                 }else{
                     session_destroy();
-                    header("Location: ../resources/php/incorrecto.php");
+                    //header("Location: ../resources/php/incorrecto.php");
+                    echo $_SESSION["respuesta"];
+                    echo $respSeguridad;
                 }
             }
     ?>

@@ -54,8 +54,24 @@
                                         <div class="form-group">
                                             <input name="email" id="emailInput" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["email"];}?> placeholder="Email" class="form-control form-control-sm" type="email" required="">
                                         </div>
-                                        <div class="form-group">
-                                            <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                        <?php 
+                                            if(isset($_SESSION["usAttempts"]))
+                                                $attempt = $_SESSION["usAttempts"];
+                                            else
+                                                $attempt = "";
+                                            if(isset($_COOKIE[$attempt]) && $_COOKIE[$attempt] >= 3){
+                                                echo '<small style="color:red; margin-bottom: 10px;">Límite de Intentos.</small><br>';
+                                            }else{
+                                                ?><div class="form-group">
+                                                        <input name="palabra_secreta" <?php if(isset($_COOKIE["email"])){echo "value=".$_COOKIE["password"];}?> id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="password" required="">
+                                                    </div>
+                                                <?php
+                                                //echo $_COOKIE[$attempt];
+                                            }
+                                        ?>
+                                        
+                                        <div class="form-group text-center">
+                                        <input type="checkbox" name="checkbox"><small style="margin-left: 10px;">Guardar Sesión</small>
                                         </div>
                                             
                                         <div class="form-group">
@@ -85,11 +101,12 @@
                         <h3>Registro</h3>
                         <button type="button" class="close font-weight-light" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <form class="form" role="form" action="../resources/php/registro.php" method="post">
+                    <form class="form" id="formReg" role="form" name="registrationForm" action="../resources/php/registro.php" method="post">
                         <div class="modal-body">
                             <p>Nombre: <input type="text" name="nombre" required> </p>
                             <p>Cuenta: <input type="text" name="cuenta" required> </p>
-                            <p>Correo: <input type="email" name="email" required> </p>
+                            <p>Correo: <input id="correoInput" type="email" name="email" required> </p>
+                            <h6 id="unicaEmail" style="color:red;"></h6>
                             
                             <p>Pregunta de seguridad:
                                 <select name="pregunta" id="pregunta" onchange="mostrarCampoRespuesta()">
@@ -180,7 +197,7 @@
                 });
             });
         </script> 
-
+        
     </body>
 </html>
 

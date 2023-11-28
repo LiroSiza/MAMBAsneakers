@@ -7,7 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MAMBA - Help</title>
+    <script src="../resources/js/help.js"></script>
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../resources/css/help.css">
@@ -24,8 +25,10 @@
             <h3>¿Cuáles son las opciones de envío disponibles?</h3>
             <br>
             <p>Ofrecemos tres opciones de envío:
-            estándar, exprés y envío internacional.</p>
-            <a href="#" class="btn">Leer mas</a>
+            estándar, exprés y envío internacional.
+            En la mayoría de calzado no inlcuye costo por 
+            envío.</p>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -33,7 +36,7 @@
             <br>
             <p>El tiempo de entrega depende de la opción de
             envío seleccionada y de su ubicación. En promedio, los pedidos estándar suelen llegar en 5-7</p>
-            <a href="#" class="btn">Leer mas</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -42,7 +45,7 @@
             <p>Sí, ofrecemos un sistema de seguimiento de
             pedidos. Tan pronto como tu pedido sea enviado, recibirás un número de seguimiento por
             correo electrónico.</p>
-            <a href="#" class="btn">Leer mas</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -51,7 +54,7 @@
             <p>Si tu pedido llega dañado o
             incompleto, contáctanos dentro de los 7 días posteriores a la recepción y resolveremos el
             problema de inmediato. Consulta nuestra política de devoluciones para obtener más detalles.</p>
-            <a href="#" class="btn">Leer mas</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -61,7 +64,7 @@
             Sí, aceptamos devoluciones dentro de los 30 días posteriores a la
             recepción de tu pedido. Consulta nuestra política de devoluciones para obtener instrucciones
             </p>
-            <a href="#" class="btn">Leer mas</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -70,7 +73,7 @@
             <p> Sí,
             ofrecemos cambios de producto dentro de los 14 días posteriores a la recepción del pedido.
             Consulta nuestra política de cambios para obtener más información.</p>
-            <a href="#" class="btn">Leer mas</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -80,7 +83,7 @@
             y promociones especiales. Mantente informado visitando nuestra página de ofertas o
             suscribiéndote a nuestro boletín informativo.
             </p>
-            <a href="#" class="btn">Leer más</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -89,7 +92,7 @@
             <p> Actualmente, operamos exclusivamente
             en línea a través de nuestro sitio web.
             </p>
-            <a href="#" class="btn">Leer más</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -99,7 +102,7 @@
             Sí, ofrecemos una garantía de calidad de 90 días en
             todos nuestros productos. Si experimentas algún problema de calidad, contáctanos y lo resolveremos.
             </p>
-            <a href="#" class="btn">Leer más</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
 
             <div class="card">
@@ -109,18 +112,32 @@
             Para devoluciones de regalos o compras para otras personas, sigue el mismo
             proceso de devolución estándar. Te ayudaremos a procesar la devolución y a emitir un
             reembolso.</p>
-            <a href="#" class="btn">Leer más</a>
+            <button class="btn" onclick="toggleContent(this)">Leer más</button>
             </div>
             
         </div>
     </div>
+    
+    <script>
+        function toggleContent(button) {
+            var content = button.previousElementSibling;
+            content.classList.toggle("expanded");
 
+            if (content.classList.contains("expanded")) {
+                button.textContent = "Leer menos";
+            } else {
+                button.textContent = "Leer más";
+            }
+        }
+    </script>
+    
+    
     
     <div class="cardImages">
-        <div class="img"><img src="../resources/img/nikeHelp.webp" alt="nikeHelp"></div>
-        <div class="img"><img src="../resources/img/adidasHelp.webp" alt="adidasHelp"></div>
-        <div class="img"><img src="../resources/img/newbalanceHelp.webp" alt="newbalanceHelp"></div>
-        <div class="img"><img src="../resources/img/asicsHelp.webp" alt="asicsHelp"></div>
+        <div class="img"><a href="shop.php"><img src="../resources/img/nikeHelp.webp" alt="nikeHelp"></a></div>
+        <div class="img"><a href="shop.php"><img src="../resources/img/adidasHelp.webp" alt="adidasHelp"></a></div>
+        <div class="img"><a href="shop.php"><img src="../resources/img/newbalanceHelp.webp" alt="newbalanceHelp"></a></div>
+        <div class="img"><a href="shop.php"><img src="../resources/img/asicsHelp.webp" alt="asicsHelp"></a></div>
         <!-- <div class="img"><img src="../resources/img/converseHelp.webp" alt="converseHelp"></div>
         <div class="img"><img src="../resources/img/jordanHelp.webp" alt="jordanHelp"></div> -->
     </div>

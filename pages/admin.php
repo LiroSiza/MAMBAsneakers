@@ -1,4 +1,7 @@
-
+<?php
+    ob_start();
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,7 @@
 <body>
 
     <?php
-        include('../includes/headr.php');
+        include('../includes/headrAdmin.php');
     ?>
 
     <br>

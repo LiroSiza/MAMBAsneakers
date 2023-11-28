@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login incorrecto</title>
+    <title>Datos Erróneos</title>
     <link rel="stylesheet" href="../css/header.css">
     <style>
         body{
@@ -73,7 +73,13 @@
         <div class="messg">
             <h1>Lo sentimos..</h1>
             <img src="../img/bailey.png" alt="">
-            <h1 class="datosI" >Datos Incorrectos</h1>
+            <?php
+                if(isset($_GET['error'])){
+                    echo '<h1 class="datosI" >El correo ya está registrado</h1>';  
+                }else{
+                    echo '<h1 class="datosI" >Datos Incorrectos</h1>';
+                }
+            ?>
             <a href="../../pages/homee.php">Intentar de nuevo</a>
         </div>
     </div>

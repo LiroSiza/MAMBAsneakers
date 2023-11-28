@@ -36,7 +36,14 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                 $alias_Usuario =$_POST['cuenta'];
                 $correo_Usuario = $_POST['email'];
                 $preg_Seguridad = $_POST['pregunta'];
-                $resp_Pregunta = $_POST['respuesta'];
+                
+                //pasamos la respuesta a mayusculas y 
+                $resp = $_POST['respuesta'];
+                $resp_Pregunta = mb_strtoupper($resp, 'UTF-8');
+
+                //encritamos la respuesta
+                $resp_Pregunta = password_hash($resp_Pregunta, PASSWORD_BCRYPT);
+
                 $contra_Usuario =$_POST['contra'];
 
                 //Esto es para colocar como tal la pregunta de seguridad en la DB
@@ -44,6 +51,15 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 
                 //Para encriptar la contraseña
                 $contra_enc = password_hash($contra_Usuario, PASSWORD_BCRYPT);
+
+                $stmt = $conexion->prepare("SELECT * FROM usuario WHERE Correo_Usr = ?");
+                $stmt->bind_param('s', $correo_Usuario); 
+                $stmt->execute();
+                $res = $stmt->get_result();
+
+                if($res->num_rows > 0){
+                        header("Location:incorrecto.php?error=1");
+                }
                 
                 //Hacemos cadena con la sentencia mysql para insertar datos
                 $sql = "INSERT INTO usuario (Usuario, Correo_Usr, Password_Usr, PregSeguridad, Nombre_Usr, RespuestaPregSeg) VALUES('$alias_Usuario','$correo_Usuario','$contra_enc','$preguntaSeg','$nom_Usuario','$resp_Pregunta')";
