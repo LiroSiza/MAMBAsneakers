@@ -11,6 +11,7 @@
     <title>MAMBA - Shop</title>
     <link rel="stylesheet" href="../resources/css/shop.css">
     <script src="https://kit.fontawesome.com/a99fa1f648.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     <?php
@@ -44,21 +45,35 @@
         $resultado = $conexion -> query($sql);
 
         $resultado = $conexion -> query($sql);
+
+        $session=true;
         
         if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["idProducto"])) {
-            $idCliente = $_SESSION['ID']; 
-            $idProducto = $_GET["idProducto"];
-            $cantidad = 1; 
-            $cart = 1; 
-        
-            $sql = "INSERT INTO venta (ID_Cte, ID_Prod, Cantidad, Cart) VALUES ('$idCliente', '$idProducto', '$cantidad', '$cart')";
-        
-            if ($conexion->query($sql) === TRUE) {
-                echo "<script>alert('Producto agregado al carrito');</script>";
-            } else {
-                echo "<script>alert('Error');</script>";
+            if(isset($_SESSION['ID'])){
+                $idCliente = $_SESSION['ID']; 
+                $idProducto = $_GET["idProducto"];
+                $cantidad = 1; 
+                $cart = 1; 
+                
+                $session=true;
+
+                $sql = "INSERT INTO venta (ID_Cte, ID_Prod, Cantidad, Cart) VALUES ('$idCliente', '$idProducto', '$cantidad', '$cart')";
+            
+                if ($conexion->query($sql) === TRUE) {
+                    echo '<script src="../resources/js/shop.js"></script>';
+                    echo '<script>var escenario = "agregarCarrito";</script>';
+                } else {
+                    echo '<script src="../resources/js/shop.js"></script>';
+                    echo '<script>var escenario = "agregarError";</script>';
+                }
             }
+            else{
+                $session=false;
+            }
+            
+            
         }
+        
         include('../includes/headr.php');
     ?>
 
@@ -81,7 +96,16 @@
             ?>
         </select>
         <input type="submit" value="Aplicar">
-    </form>    
+    </form>
+    
+    <div>
+        <?php
+        if($session==false){
+            echo '<script src="../resources/js/shop.js"></script>';
+            echo '<script>var escenario = "errorSesion";</script>';
+        }
+        ?>
+    </div>
 
 
     <div class="card-container">
