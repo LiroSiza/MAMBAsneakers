@@ -43,6 +43,10 @@ nav #nav-links{
     width: 70px;
     height: 100%;
 }
+.navL{
+    width: 100px;
+    height: 100%;
+}
 .navL a{
     font-size: 1.1rem;
     cursor: pointer;
@@ -152,10 +156,13 @@ button{
     padding-top: 0px;
     transition: filter 0.5s ease;
 }
+#numCarrito{
+    text-decoration: none;
+    color: black;
+}
 #bagShop:hover{
     filter: brightness(200%);
 }
-
 
 /*Estilos Registro*/
 .oculto {
@@ -252,4 +259,12 @@ button{
 /*De esta forma se elimina la línea superior en el modal, Robert lo pidio jajaja*/
 #modalPassword .modal-header {
     border: none;
+}
+.carrito{
+    padding-left:0px;
+    margin-left: 0;
+    margin-top: 15px;
+    padding-right: 0;
+    margin-right: 0;
+    height: 30px;
 }
