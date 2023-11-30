@@ -40,8 +40,10 @@
             $res = $stmt->get_result();
             
             //nos deshacemos de la cookie que guarda el numero de intentos fallidos
-            setcookie($_SESSION["usAttempts"], 0, time() - 3600, '/');
-            $_SESSION["usAttempts"]="";
+            if(isset($_SESSION["usAttempts"])){    
+                setcookie($_SESSION["usAttempts"], 0, time() - 3600, '/');
+                $_SESSION["usAttempts"]="";
+            }
 
             header("Location: homee.php");
             

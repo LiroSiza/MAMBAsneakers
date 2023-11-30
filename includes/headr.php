@@ -33,6 +33,8 @@
                 if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]=='admin'){
                     echo '<li class="navL"><a href="admin.php" class="links">Admin</a></li>';
                 }
+
+                if(isset($_SESSION["usuario"])){
                 ?>
                 
                 <li class="navL-2">
@@ -75,6 +77,7 @@
 
 
                 <?php
+                }
                     if(isset($_SESSION['Nombre_Usr'])){
                         echo '<li class="navL">Hola '.$_SESSION["Nombre_Usr"].'!</li>';
                 ?>
