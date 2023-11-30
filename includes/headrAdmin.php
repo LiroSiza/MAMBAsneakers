@@ -8,6 +8,7 @@
         <!-- <link rel="stylesheet" href="../resources/css/header.css"> -->
         <script src="https://kit.fontawesome.com/0d4c0ee316.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../resources/css/header.css">
+        <link rel="icon" href="../resources/img/fav.ico" type="image/x-icon">
         <script src="../resources/js/header.js"></script>
     </head>
     <body id="body">
