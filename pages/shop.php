@@ -1,6 +1,7 @@
 <?php
     ob_start();
     session_start();
+    include('../includes/headr.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,6 @@
         if ($conexion->connect_error) {
             die("Conexión fallida: " . $conexion->connect_error);
         }
-        
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -41,8 +41,6 @@
         } else{
             $sql = 'SELECT * FROM producto';
         }
-
-        $resultado = $conexion -> query($sql);
 
         $resultado = $conexion -> query($sql);
 
@@ -74,7 +72,7 @@
             
         }
         
-        include('../includes/headr.php');
+
     ?>
 
     <!-- Filtro de categorias -->
@@ -84,6 +82,7 @@
             <?php
                 $query = "SELECT DISTINCT Categoria FROM producto"; 
                 $result = $conexion->query($query);
+  
                 if ($result) {
                     while ($row = $result->fetch_assoc()) {
                         $categoria = $row['Categoria'];
@@ -98,6 +97,9 @@
         <input type="submit" value="Aplicar">
     </form>
     
+    
+    
+
     <div>
         <?php
         if($session==false){
