@@ -302,3 +302,32 @@ body{
 }
 
 
+.slogan{
+    font-family:sans-serif;
+     text-align: center;
+     font-weight: bold;
+ }
+ 
+ .slogan h1{
+     font-family: 'Bebas Neue', sans-serif;
+     font-size: 75px;
+ 
+ }
+ 
+ #slBtn{
+     background-color: black;
+     color: white;
+     border-radius: 20px;
+     width: 160px;
+     height: 50px;
+     font-size: 20px;
+     font-weight: bold;
+ }
+ 
+ #slBtn:hover{
+     background-color: white;
+     color: black;
+     border: 1px solid black;
+ }
+
+
