@@ -1,6 +1,7 @@
 <?php
     ob_start();
     session_start();
+    include('../includes/headr.php');
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +72,7 @@
             
         }
         
-        include('../includes/headr.php');
+
     ?>
 
     <!-- Filtro de categorias -->
