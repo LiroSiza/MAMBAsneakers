@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>MAMBA - Home</title>
     <link rel="stylesheet" href="../resources/css/estilosInicioRuben.css">
 </head>
@@ -44,6 +45,15 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+    <div class="slogan">
+        <h1>DESATA TU VELOCIDAD, ABRAZA TU ESTILO</h1>
+        <h2> Donde la potencia de la serpiente se encuentra con la moda en cada paso</h2>
+        <h3> ¡Deslízate hacia la grandeza con nosotros!</h3>
+        <div>
+            <button id="slBtn">Comprar</button>
+            <button id="slBtn">Descubre Más</button>
+        </div>
     </div>
     <br><br>
     <center>
