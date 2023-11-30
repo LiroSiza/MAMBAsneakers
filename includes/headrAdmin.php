@@ -29,6 +29,9 @@
                 <li class="navL"><a href="about.php" class="links">About</a></li>
                 <li class="navL"><a href="help.php" class="links">Help</a></li>
                 <li class="navL"><a href="contact.php" class="links">Contact</a></li>
+                <?php
+                    if(isset($_SESSION['Nombre_Usr'])){
+                ?>
                 <li class="navL-2">
                     <a href="../resources/php/carrito.php" class="links">
                         <div class="carrito">
@@ -67,6 +70,7 @@
                     </a>
                 </li>
                 <?php
+                    }
                 if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]=='admin'){
                     echo '<li class="navL"><a href="admin.php" class="links">Admin</a></li>';
                 }

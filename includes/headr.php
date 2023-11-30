@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- <link rel="stylesheet" href="../resources/css/header.css"> -->
         <script src="https://kit.fontawesome.com/0d4c0ee316.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="../resources/img/fav.ico" type="image/x-icon">
         <link rel="stylesheet" href="../resources/css/header.css">
         <script src="../resources/js/header.js"></script>
     </head>
@@ -33,6 +34,8 @@
                 if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]=='admin'){
                     echo '<li class="navL"><a href="admin.php" class="links">Admin</a></li>';
                 }
+
+                if(isset($_SESSION["usuario"])){
                 ?>
                 
                 <li class="navL-2">
@@ -75,6 +78,7 @@
 
 
                 <?php
+                }
                     if(isset($_SESSION['Nombre_Usr'])){
                         echo '<li class="navL">Hola '.$_SESSION["Nombre_Usr"].'!</li>';
                 ?>
