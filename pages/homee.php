@@ -10,11 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../resources/css/homeBlock3.css">
+    <link rel="stylesheet" href="../resources/css/estilosInicioRuben.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=PT+Serif&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>MAMBA - Home</title>
-    <link rel="stylesheet" href="../resources/css/estilosInicioRuben.css">
 </head>
 <body>
     <?php
@@ -44,6 +45,15 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+    </div>
+    <div class="slogan">
+        <h1>DESATA TU VELOCIDAD, ABRAZA TU ESTILO</h1>
+        <h2> Donde la potencia de la serpiente se encuentra con la moda en cada paso</h2>
+        <h3> ¡Deslízate hacia la grandeza con nosotros!</h3>
+        <div>
+            <button class="slBtn">Comprar</button>
+            <button class="slBtn">Descubre Más</button>
+        </div>
     </div>
     <br><br>
     <center>
