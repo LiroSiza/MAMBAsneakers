@@ -48,7 +48,7 @@
     }
 
     if(isset($_POST['submit2'])){
-        $targetDir = "../resources/img/productos/";  // Directorio donde se guardarán las imágenes
+        $targetDir = "../resources/img/shopimages/";  // Directorio donde se guardarán las imágenes
         $targetFile = $targetDir . basename($_FILES["file"]["name"]);
 
         // Verificar si el archivo es una imagen real

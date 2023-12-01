@@ -148,7 +148,7 @@
                     
                 <!-- Boton para agregar al carrito -->
                 <div style="text-align: center;">
-                <button onclick="agregar(<?php echo $id;?>,<?php echo $existencias;?>)" id="<?php echo $item ?>" class="carrito"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px">    Agregar al carrito</button>
+                <button onclick="agregar(<?php echo $id;?>,<?php echo $existencias;?>)" id="<?php echo $item ?>" class="carrote"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px">    Agregar al carrito</button>
                 </div>
                 <?php else: ?>
                 <p style="color: grey; font-weight:bold;">AGOTADO</p>

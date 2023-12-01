@@ -57,7 +57,7 @@
     }
 
     if(isset($_POST['submit3'])){
-        $targetDir = "../resources/img/productos/";  // Directorio donde se guardarán las imágenes
+        $targetDir = "../resources/img/shopimages/";  // Directorio donde se guardarán las imágenes
         $targetFile = $targetDir . basename($_FILES["file"]["name"]);
 
         // Verificar si el archivo es una imagen real
@@ -225,7 +225,7 @@
     </div>
     <div id="contenedor-2">
         <div>
-            <img src="../resources/img/productos/<?php echo htmlspecialchars($data['Imagen']); ?>" alt="imagen de producto">
+            <img src="../resources/img/shopimages/<?php echo htmlspecialchars($data['Imagen']); ?>" alt="imagen de producto">
         </div>
     </div>
     </div>
