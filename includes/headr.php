@@ -24,7 +24,8 @@
     <body id="body">
         <nav class="nav-container">
             <div id="logoImg">
-                <img src="../resources/img/logoMAMBA.png" alt="logo de la marca" width="60px">
+                <img src="../resources/img/logoMAMBA.png" alt="logo de la marca" width="60px" style="float: left; margin-right: 10px;">
+                <h1 id="textLogo" style="float: left; margin-right: 10px;">MAMBA Sneakers</h1>
             </div>
             <!-- LINES -->
             <div class="hamburger">
