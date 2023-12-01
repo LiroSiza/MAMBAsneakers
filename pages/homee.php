@@ -51,8 +51,8 @@
         <h2> Donde la potencia de la serpiente se encuentra con la moda en cada paso</h2>
         <h3> ¡Deslízate hacia la grandeza con nosotros!</h3>
         <div>
-            <button class="slBtn">Comprar</button>
-            <button class="slBtn">Descubre Más</button>
+            <a href="shop.php"><button class="slBtn">Comprar</button></a>
+            <a href="about.php"><button class="slBtn">Descubre Más</button></a>
         </div>
     </div>
     <br><br>
