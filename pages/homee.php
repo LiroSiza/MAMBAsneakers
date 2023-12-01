@@ -58,7 +58,7 @@
     <br><br>
     <center>
         <div class="contenedor">
-            <div id="imagen1"><img src="../resources/img/imgRuben/img12.png" alt="" id="imgIzquierda"></div>
+            <div id="imagen1"><img src="../resources/img/imgRuben/imgGrande.png" alt="" id="imgIzquierda"></div>
             <div id="imagen2"><img src="../resources/img/imgRuben/img11.jpeg" alt="" id="imgDerecha"></div>
             <div id="imagen3"><img src="../resources/img/imgRuben/img3.jpg" alt="" class="imgAbajo"></div>
             <div id="imagen4"><img src="../resources/img/imgRuben/img4.jpg" alt="" class="imgAbajo"></div>
