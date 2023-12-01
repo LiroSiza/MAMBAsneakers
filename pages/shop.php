@@ -11,6 +11,7 @@
     <title>MAMBA - Shop</title>
     <link rel="stylesheet" href="../resources/css/shop.css">
     <script src="https://kit.fontawesome.com/a99fa1f648.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     <?php
@@ -43,7 +44,36 @@
 
         $resultado = $conexion -> query($sql);
 
-    
+        $resultado = $conexion -> query($sql);
+
+        $session=true;
+        
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["idProducto"])) {
+            if(isset($_SESSION['ID'])){
+                $idCliente = $_SESSION['ID']; 
+                $idProducto = $_GET["idProducto"];
+                $cantidad = 1; 
+                $cart = 1; 
+                
+                $session=true;
+
+                $sql = "INSERT INTO venta (ID_Cte, ID_Prod, Cantidad, Cart) VALUES ('$idCliente', '$idProducto', '$cantidad', '$cart')";
+            
+                if ($conexion->query($sql) === TRUE) {
+                    echo '<script src="../resources/js/shop.js"></script>';
+                    echo '<script>var escenario = "agregarCarrito";</script>';
+                } else {
+                    echo '<script src="../resources/js/shop.js"></script>';
+                    echo '<script>var escenario = "agregarError";</script>';
+                }
+            }
+            else{
+                $session=false;
+            }
+            
+            
+        }
+        
         include('../includes/headr.php');
     ?>
 
@@ -66,7 +96,16 @@
             ?>
         </select>
         <input type="submit" value="Aplicar">
-    </form>    
+    </form>
+    
+    <div>
+        <?php
+        if($session==false){
+            echo '<script src="../resources/js/shop.js"></script>';
+            echo '<script>var escenario = "errorSesion";</script>';
+        }
+        ?>
+    </div>
 
 
     <div class="card-container">
@@ -104,9 +143,10 @@
                     <p><strong>Precio: </strong>$<?php echo number_format($precio,2); ?></p>
                 <?php endif; ?>
                 <?php if ($existencias>0) : ?>
+                    
                 <!-- Boton para agregar al carrito -->
                 <div style="text-align: center;">
-                <button id="<?php echo $item ?>" class="carrito"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px">    Agregar al carrito</button>
+                <button onclick="agregar(<?php echo $id;?>,<?php echo $existencias;?>)" id="<?php echo $item ?>" class="carrito"><img src="../resources/img/shopimages/carrito.jpg" alt="" width="20px" height="20px">    Agregar al carrito</button>
                 </div>
                 <?php else: ?>
                 <p style="color: grey; font-weight:bold;">AGOTADO</p>
@@ -114,6 +154,17 @@
             </div>
         </div>
 
+        <!-- Script agregar al carrito cuando se de click al boton -->
+        <script>
+            function agregar(idProducto, existencias){
+                if(existencias>0){
+                    window.location.href = '?idProducto=' + idProducto;
+                }else{
+                    alert ('Producto agotado');
+                }
+            }
+        </script>
+    
     <?php
             $item = $item+1;
         } ?>
