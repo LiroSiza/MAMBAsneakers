@@ -59,7 +59,9 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
 
                 if($res->num_rows > 0){
                         header("Location:incorrecto.php?error=1");
-                }
+                }else{
+
+                
                 
                 //Hacemos cadena con la sentencia mysql para insertar datos
                 $sql = "INSERT INTO usuario (Usuario, Correo_Usr, Password_Usr, PregSeguridad, Nombre_Usr, RespuestaPregSeg) VALUES('$alias_Usuario','$correo_Usuario','$contra_enc','$preguntaSeg','$nom_Usuario','$resp_Pregunta')";
@@ -162,6 +164,7 @@ $conexion = new mysqli($servidor,$cuenta,$password,$bd);
                           
                     }
                 }
+            }
          }//fin  
     }
 ?>
