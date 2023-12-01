@@ -10,11 +10,22 @@
         <link rel="icon" href="../resources/img/fav.ico" type="image/x-icon">
         <link rel="stylesheet" href="../resources/css/header.css">
         <script src="../resources/js/header.js"></script>
+        <style>
+            .carrito{
+                padding-left:0px;
+                margin-left: 0;
+                margin-top: 15px;
+                padding-right: 0;
+                margin-right: 0;
+                height: 30px;
+            }       
+        </style>
     </head>
     <body id="body">
         <nav class="nav-container">
             <div id="logoImg">
-                <img src="../resources/img/logoMAMBA.png" alt="logo de la marca" width="60px">
+                <img src="../resources/img/logoMAMBA.png" alt="logo de la marca" width="60px" style="float: left; margin-right: 10px;">
+                <h1 id="textLogo" style="float: left; margin-right: 10px;">MAMBA Sneakers</h1>
             </div>
             <!-- LINES -->
             <div class="hamburger">
@@ -35,7 +46,7 @@
                     echo '<li class="navL"><a href="admin.php" class="links">Admin</a></li>';
                 }
 
-                if(isset($_SESSION["usuario"])){
+                if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]!='admin'){
                 ?>
                 
                 <li class="navL-2">
@@ -64,7 +75,7 @@
 
                                 if ($res) {
                                     $numRegistros = $res->num_rows;
-                                    echo "Elementos en el carrito: $numRegistros";
+                                    echo $numRegistros;
                                 } else {
                                     echo "Error en la consulta: " . $connect->error;
                                 }

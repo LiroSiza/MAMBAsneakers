@@ -16,7 +16,7 @@ if (isset($_POST['valorID'])) {
         die("Conexión fallida: " . $conexion->connect_error);
     }
 
-    $nombreCarpeta = '../resources/img/productos/';
+    $nombreCarpeta = '../resources/img/shopimages/';
     // Sentencia preparada
     $sql1 = "SELECT Imagen FROM producto WHERE ID_Pto = ?";
 

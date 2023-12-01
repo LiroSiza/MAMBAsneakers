@@ -14,7 +14,8 @@
     <body id="body">
         <nav class="nav-container">
             <div id="logoImg">
-                <img src="../resources/img/logoMAMBA.png" alt="logo de la marca" width="60px">
+                <img src="../resources/img/logoMAMBA.png" alt="logo de la marca" width="60px" style="float: left; margin-right: 10px;">
+                <h1 id="textLogo" style="float: left; margin-right: 10px;">MAMBA Sneakers</h1>
             </div>
             <!-- LINES -->
             <div class="hamburger">
@@ -33,51 +34,14 @@
                 <?php
                     if(isset($_SESSION['Nombre_Usr'])){
                 ?>
-                <li class="navL-2">
-                    <a href="../resources/php/carrito.php" class="links">
-                        <div class="carrito">
-                            <img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px" style="float: left; margin-right: 10px;" />
-                            <p id="numCarrito" style="float: left; margin-right: 10px;">
-                            <?php
-                                $servidor = 'localhost';
-                                $cuenta = 'root';
-                                $password = '';
-                                $bd = 'mamba';
-
-                                $connect = new mysqli($servidor, $cuenta, $password, $bd);
-
-                                if ($connect->connect_error) {
-                                    die("Conexión fallida: " . $connect->connect_error);
-                                }
-
-                                $idCliente = $_SESSION['ID'];
-
-                                //Aqui hace la consulta con las condiciones
-                                $consulta = "SELECT * FROM venta WHERE ID_Cte = '$idCliente' AND Cart = 1";
-                                $res = $connect->query($consulta);
-
-
-                                if ($res) {
-                                    $numRegistros = $res->num_rows;
-                                    echo "Elementos en el carrito: $numRegistros";
-                                } else {
-                                    echo "Error en la consulta: " . $connect->error;
-                                }
-
-                                $connect->close();
-                            ?>
-                            </p>
-                        </div>
-                    </a>
-                </li>
+                
                 <?php
                     }
                 if(isset($_SESSION["usuario"]) && $_SESSION["usuario"]=='admin'){
                     echo '<li class="navL"><a href="admin.php" class="links">Admin</a></li>';
                 }
                 ?>
-                <li class="navL"><a href="#" class="links"><img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px"/></a></li>
-
+                
                 <?php
                     if(isset($_SESSION['Nombre_Usr'])){
                         echo '<li class="navL">Hola '.$_SESSION["Nombre_Usr"].'!</li>';

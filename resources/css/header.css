@@ -32,6 +32,9 @@ nav{
 #logoImg{
     padding-bottom: 15px;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 nav #nav-links{
     list-style-type: none;
@@ -267,4 +270,8 @@ button{
     padding-right: 0;
     margin-right: 0;
     height: 30px;
+}
+#textLogo{
+    color: rgba(255, 128, 0, 0.8);
+    font-size: 20px;
 }

@@ -40,7 +40,7 @@ body {
 }
 
 
-.carrito{
+.carrote{
     background-color: #ff9d00;
     color: white;
     padding: 10px;
@@ -51,7 +51,7 @@ body {
     margin-top: 10px; 
 }
 
-.carrito:hover{
+.carrote:hover{
     background-color: #ff6600;
 }
 
