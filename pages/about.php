@@ -13,9 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/347f462998.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../resources/img/fav.ico" type="image/x-icon">
 
     <script src="../resources/js/about.js"></script>
-    <title>Acerca De Nosotros</title>
+    <title>MAMBA - About</title>
 </head>
 <body>
 <?php

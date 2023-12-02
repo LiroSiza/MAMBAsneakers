@@ -11,6 +11,7 @@
     <script src="https://kit.fontawesome.com/0d4c0ee316.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="../resources/css/contacto.css">
+    <link rel="icon" href="../resources/img/fav.ico" type="image/x-icon">
     <title>MAMBA - Contacto</title>
 </head>
 <body>
