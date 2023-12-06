@@ -1,0 +1,223 @@
+.bodyPago{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.titlePay{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+
+.direccion{
+    margin-top: 4%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid rgb(255, 128, 0);
+    width: 50%
+}
+
+.pasos{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    color: rgb(255, 128, 0);
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.formDireccion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.formDos{
+    margin-left: 10%;
+}
+
+.paisS{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.pago{
+    border: 1px solid rgb(255, 128, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 5%;
+}
+.opciones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#oxxo, #card{
+    display: none;
+}
+
+.back{
+    color: white;
+    background-color: rgb(255, 128, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    display: none;
+    margin-top: 20%;
+}
+
+.datos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 2%;
+}
+
+.cupon{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: 1px solid rgb(255, 128, 0);
+}
+
+.inputCupon{
+    margin-right: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.velocidad{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: 1px solid rgb(255, 128, 0);
+}
+
+.opciones{
+    width: 75%;
+    font-family: 'Manrope', sans-serif;
+}
+
+.labOpciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 4%;
+
+}
+
+
+
+.labOpcionesDos{
+    margin-top: 10%;
+}
+
+.labOpciones input{
+    margin-right: 20%;
+
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 90%;
+}
+
+.info p{
+    margin-bottom: 0px;
+}
+
+.info small{
+    color:rgb(255, 128, 0);
+}
+
+.continuar{
+    color: white;
+    background-color: rgb(255, 128, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.continuar:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+.tabTotal td{
+    margin-right: 10%;
+}
+
+.tabTotal{
+    font-family: 'Manrope', sans-serif;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.tabTotal th{
+    font-weight: 800;
+    font-size: 20px;
+    color: rgb(255, 128, 0);
+    text-align: center;
+}
+.tabTotal .c{
+    text-align: center;
+}
+.tabTotal .r{
+    border-right: 0px;
+}
+.tabTotal .l{
+    border-left: 0px;
+}
+
+.tabTotal td, .tabTotal th{
+    padding: 10px;
+    border: 1px solid rgb(255, 128, 0);
+    border-collapse: collapse;
+}
+
+.tabTotal .end{
+    background-color: rgb(255, 128, 0);
+    color: white;
+    font-weight: 800;
+}
