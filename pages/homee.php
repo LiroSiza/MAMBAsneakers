@@ -112,6 +112,7 @@
             </div>
 
         </div>
+        <a href="pago.php">Here</a>
     </div>
     <?php
         include('../includes/footer.html');
