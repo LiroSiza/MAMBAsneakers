@@ -82,13 +82,15 @@ session_start();
     ?>
 
     <center><h1>Top Sneakers Más Vendidos</h1></center>
+    <br>
     <center>
         <div style="width: 500px; height: 500px;">
             <canvas id="myPieChart"></canvas>
         </div>
     </center>
-
+    <br><br><br><br>
     <center><h1>Top Usuarios que Más Sneakers Han Comprado</h1></center>
+    <br>
     <center>
         <div style="width: 500px; height: 500px;">
             <canvas id="myBarChart"></canvas>
