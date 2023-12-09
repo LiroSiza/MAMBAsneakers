@@ -12,7 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../resources/css/pago.css">
+    <script src="https://kit.fontawesome.com/26749c556a.js" crossorigin="anonymous"></script>
 </head>
 <body >
 
@@ -50,22 +52,23 @@
                 }else{
                     $cantidadArray[$idProd]=$cantidad;
                 }
-                $stmt2 = $conexion->prepare(
-                    "SELECT Precio, Nombre_Pto 
-                    FROM producto 
-                    WHERE ID_Pto = ?");
-                $stmt2->bind_param('s', $idProd);
-                $stmt2->execute();
-                $res2 = $stmt2->get_result();
-                $fila2=$res2->fetch_assoc();
-                $precio=$fila2['Precio'];
-                if(isset($precioArray[$idProd])){
-                    $precioArray[$idProd]+=$precio;
-                }else{
+                
+                if(!isset($precioArray[$idProd])){
+                    $stmt2 = $conexion->prepare(
+                        "SELECT Precio, Nombre_Pto, Imagen 
+                        FROM producto 
+                        WHERE ID_Pto = ?");
+                    $stmt2->bind_param('s', $idProd);
+                    $stmt2->execute();
+                    $res2 = $stmt2->get_result();
+                    $fila2=$res2->fetch_assoc();
+                    $precio=$fila2['Precio'];
                     $precioArray[$idProd]=$precio;
+                    $nombreArray[$idProd]=$fila2['Nombre_Pto'];
+                    $imagenArray[$idProd]=$fila2['Imagen'];
                 }
-                $nombreArray[$idProd]=$fila2['Nombre_Pto'];
-                $total=$total+($precio*$cantidad);
+                
+                $total=$total+($precioArray[$idProd]*$cantidad);
             }
             $stmt2->close();
 
@@ -76,10 +79,12 @@
         $_SESSION["cantidadArray"]=$cantidadArray;
         $_SESSION["precioArray"]=$precioArray;
         $_SESSION["nombreArray"]=$nombreArray;
+        $_SESSION["imagenArray"]=$imagenArray;
 
         $_SESSION["subtotal"]=$total;
         $_SESSION["tax"]=0;
         $_SESSION["envio"]=0;
+        $_SESSION["cupon"]=0;
         $_SESSION["total"]=0;
         
 
@@ -90,35 +95,71 @@
     ?>
             <div class="total bodyPago">
                 <div class="tituloPago">
-                    <h1 class="titlePay">Resumen:</h1>
+                    <h1 class="titlePay">Resumen</h1>
                 </div>
                 <div class="tablePrices">
                     <table class="tabTotal">
                         <tr>
-                            <th>Concepto</th>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
                             <th>Cantidad</th>
-                            <th>Costo</th>
+                            <th>Total</th>
 
                         </tr>        
                         <?php
                             foreach($nombreArray as $id => $nombre){
                                 echo "<tr>
-                                    <td class='r'>$nombre</td>
-                                    <td class='c r l '>$cantidadArray[$id]</td>
-                                    <td class='c l'>$" . number_format($precioArray[$id], 2, '.', ',')."</td>
+                                    <td class='c'><img src='../resources/img/shopimages/$imagenArray[$id]' width='200px' alt=''></td>
+                                    <td class='c'>$nombre</td>
+                                    <td class='c '>$" . number_format($precioArray[$id], 2, '.', ',')."</td>
+                                    <td class='c '>$cantidadArray[$id]</td>
+                                    <td class='c '>$" . number_format($precioArray[$id]*$cantidadArray[$id], 2, '.', ',')."</td>
                                 </tr>";
                             }
                         ?>
-                        <tr>
-                            <td colspan="2" class="r c">Subtotal</td>
-                            <td class="l"><p><?php echo "$".number_format($total, 2, '.', ','); ?></p></td>
-                        </tr>      
+                            
                         
+                        
+                    </table>
+                </div>
+                <div class="cifras">
+                    <table class="tabEnd">
+                        <tr><th colspan="2">Total del Cart</th></tr>
+                        
+                        <tr >
+                            <td class="left bottom" >Subtotal</td>
+                            <td class="right bottom"><p><?php echo "$".number_format($total, 2, '.', ','); ?></p></td>
+                        </tr>
+                        <tr >
+                            <td class="left bottom" >Cupón</td>
+                            <td class="right bottom">
+                                <p>
+                                    <?php 
+                                        if(isset($_POST["cupon"])){
+                                            $cupon=$_POST["cupon"];
+                                            if($cupon=="MAMBA10" || $cupon=="MAMBA20" || $cupon=="MAMBA30"){
+                                                echo "$-".number_format($total*.3, 2, '.', ',')."(-30%)";
+                                                $_SESSION["cupon"]=0.3;
+                                                $total*=(0.6);
+                                            }
+                                            else{
+                                                echo "0%";
+                                                $_SESSION["cupon"]=0;
+                                            }
+                                                
+                                                
+                                        }   
+                                    ?>
+                                </p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td class="c r" colspan="2">
+                            <td class="left bottom top"  >
                                 <p>Envío</p>
                             </td>
-                            <td class="l">
+                            <td class="right bottom top">
                                 <p> 
                                     <?php 
                                         if($_POST["envio"]=="envio1"){
@@ -127,19 +168,21 @@
                                         }else{ 
                                             echo "$110.00";
                                             $_SESSION["envio"]=110;
+                                            $total+=110;
                                         }
                                     ?>
                                 </p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="c r" colspan="2">
+                            <td class="left top" >
                                 <p>Impuesto ( 
                                     <?php 
                                         if($_POST["pais"]=="USA"){ 
-                                            echo "0%"; //MERICA BABYYY
+                                            echo "0%"; // MERICA BABYYY
                                             $tax=0;
                                             $_SESSION["tax"]=0;
+
                                         }else if($_POST["pais"]=="Canada"){
                                             echo "20%";
                                             $tax=0.2;
@@ -152,16 +195,43 @@
                                     ?>)
                                 </p>
                             </td>
-                            <td class="l "> <?php echo "$".number_format($total*$tax, 2, '.', ','); ?></td>
+                            <td class="right top "> <?php echo "$".number_format($total*$tax, 2, '.', ','); $total*=(1+$tax); ?></td>
                         </tr>
                         <tr class="end">
-                            <td  class="r c end" colspan="2">Total</td>
-                            <td class="l end"><?php $absolute= $total*(1+$tax)+$_SESSION["envio"];
-                            echo number_format($absolute, 2, '.', ','); $_SESSION["total"]=$absolute; ?></td>
+                            <td  class="left  end" >
+
+                                <p>Total</p>
+
+                            </td>
+                            <td class="right  end">
+                                <?php 
+                                echo number_format($total, 2, '.', ','); $_SESSION["total"]; ?>    
+                            </td>
                         </tr>
+                        <tr>
+                            <td colspan="2"><div>
+                            <p>Dirección de Envío:<?php echo " ".$_POST["calle"].", ".$_POST["colonia"].", ".$_POST["ciudad"].", "
+                            .$_POST["CP"] ?></p>
+                            <p>Método de pago:
+                                <?php 
+                                    if($_POST["numTarje"]!=""){
+                                        echo "Tarjeta que termina en: ".substr($_POST["numTarje"], -4);
+                                        
+                                    }else{
+                                        echo "Código QR OXXO (Pagar en las siguientes 24 horas)";
+                                    }
+                                ?>
+                            </p>  
+                        </div> </td>
+                        </tr>
+                       
                     </table>
+                    <div class="finish">
+                                     
+                        <a style="text-decoration: none;" onclick="showSweetAlert()" class="continuar continuarEnd" href="#">Finalizar Compra  <i class="fa-solid fa-arrow-right icono"></i></a>
+
+                    </div>
                 </div>
-                    <a style="text-decoration: none;" class="continuar" href="../resources/php/generarPago.php">Finalizar Compra</a>
                 
                 
             </div>
@@ -239,7 +309,7 @@
                     <div class="formDos">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
-                            <input type="number" name="numTarje" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="text" name="numTarje" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nombre en la tarjeta</label>
@@ -262,7 +332,7 @@
             <div class="inputCupon">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Ingresa el código en tu cupón si tienes uno:</label>
-                    <input type="text" name="numTarje" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="cupon" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
             </div>
             
@@ -306,11 +376,15 @@
             </div>
         </div>
 
-        <button class="continuar" type="submit" name="submit">Continuar</button>
+        <button class="continuar"  type="submit" name="submit">Continuar</button>
     </form>
+           
     <?php
         }
+    
+        include('../includes/footer.html');
     ?>
+     
 </body>
 <script>
     function card(d){
@@ -356,5 +430,22 @@
             document.getElementById("sma").style.color = "black";
         }
     }
+
+    function showSweetAlert() {
+        Swal.fire({
+            title: "Aprobado",
+            text: "Tu compra se ha realizado con éxito, ¡Gracias por tu preferencia!",
+            icon: "success",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '../pages/homee.php'; 
+            }
+        });
+        
+        return false;
+    }
+
+    
+
 </script>
 </html>

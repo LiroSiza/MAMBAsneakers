@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../resources/css/estiloRecuperarPass.css">
     <title>Document</title>
 </head>
+
 <?php
     include('../includes/headr.php');
 ?>
@@ -88,7 +89,7 @@
                                     <input type="password" name="password" class="form-control" id="confirmPassword1" required oninput="validarContrasenas1()" aria-describedby="emailHelp">
                                     <h6 id="mensajeError1" style="color:red;"></h6>
                                 </div>
-                                <button type="submit" id="submitButton1" name="submit3" class="btn btn-primary">Enviar</button>
+                                <button type="submit" id="submitButton1" name="submit3" class="btn btn-primary" style="background-color: rgb(255, 128, 0); border:none;">Enviar</button>
                             </form>
                         </div> 
                     <?php
@@ -136,7 +137,7 @@
                             <input type="text" name="respuesta" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">Sé lo mas preciso posible en cuanto a ortografía.</div>
                         </div>
-                        <button type="submit" name="submit2" class="btn btn-primary">Enviar</button>
+                        <button type="submit" name="submit2" class="btn btn-primary" style="background-color: rgb(255, 128, 0); border:none;">Enviar</button>
                     </form>
                 </div> 
     <?php
@@ -152,7 +153,7 @@
                         <label for="exampleInputEmail1" class="form-label">Ingresa tu correo</label>
                         <input type="email" name="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" name="submit" class="btn btn-primary" style="background-color: rgb(255, 128, 0); border:none;">Enviar</button>
                 </form>
             </div> 
     <?php

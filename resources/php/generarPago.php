@@ -4,7 +4,7 @@
     session_start();
 
 
-    $servidor='localhost';
+    /*$servidor='localhost';
     $cuenta='root';
     $password='';
     $bd='mamba';
@@ -26,12 +26,12 @@
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
-    $conexion->close();
+    $conexion->close();*/
 
 
 
 
-    header("Location: ../../pages/home.php");
+    header("Location: ../../pages/homee.php");
 
 
 

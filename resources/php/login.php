@@ -99,6 +99,7 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
     }
         $stmt->close();
         $conexion->close();
+        
         header("Location: incorrecto.php");
 
     ?>
