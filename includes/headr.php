@@ -68,6 +68,27 @@
                 background-color: #2980b9;
             }
 
+            /* Estilo para el icono de cierre "X" */
+            .cerrar-modal {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                font-size: 24px;
+                color: #333;
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s ease;
+            }
+
+            .cerrar-modal:hover {
+                background-color: #eee;
+            }
 
         </style>
     </head>
@@ -142,9 +163,10 @@
                     <div class="modal-content2">
                         <!-- Contenido del carrito -->
                         <?php include('../resources/php/carrito.php'); ?>
-                        
                         <!-- Botón para cerrar el modal -->
-                        <button onclick="cerrarModal();">Cerrar</button>
+                        <!-- <button onclick="cerrarModal();" class="cerrar-modal-btn">Cerrar</button> -->
+                        <!-- Icono "X" para cerrar el modal -->
+                        <span class="cerrar-modal" onclick="cerrarModal();">&#10006;</span>
                     </div>
                 </div>
 

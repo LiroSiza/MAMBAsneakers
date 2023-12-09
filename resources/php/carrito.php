@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
-       margin-bottom: 30px;
+        margin-bottom: 30px;
     }
 
     /* Efecto de hover sobre el producto */
@@ -171,17 +171,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
 
     .empty-cart-message {
         text-align: center;
-        padding: 20px;
+        padding: 15px;
         background-color: #f9f9f9;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 30px;
+        margin: 20px;
     }
 
     .empty-cart-message p {
-        font-size: 18px;
-        color: #333;
-        margin: 0;
+        font-size: 20px;
+        color: red;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        transition: text-shadow 0.3s ease-in-out; /*Efecto de transición*/
+    }
+
+    .empty-cart-message p:hover {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /*Cambia la sombra al pasar el cursor*/
     }
 
     .empty-cart-message:hover {
@@ -189,18 +194,96 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
 
+    .subtotal{
+        font-weight: bold;
+    }
+
+    .total-pagar {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .total-pagar-label {
+        font-size: 18px;
+        color: #333;
+        margin: 0;
+    }
+
+    .total-pagar-amount {
+        font-size: 24px;
+        font-weight: bold;
+        color: #e74c3c;
+        margin: 10px 0 0;
+    }
+
+    .productos-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .productos-title h2 {
+        font-size: 28px;
+        color: #fff;
+        background-color: #3498db;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 14px;
+        display: inline-block;
+    }
+
+    /*Estilos adicionales para el botón Pagar*/
+    .pagar-button {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-pagar {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: green;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-pagar:hover {
+        background-color: #2980b9;
+    }
+
+    /* Para quitar la línea debajo del enlace */
+    a.btn-pagar {
+        text-decoration: none;
+        border-bottom: none;
+    }
+
+
+
+
+
+
 </style>
 </head>
 <body>
-<!-- Contenido HTML con el bucle PHP -->
 <div class="cart-products">
     <?php
+    $totalPagar = 0; // Variable para almacenar el total a pagar
+
     if (empty($_SESSION['carrito'])) {
         // Si el carrito está vacío, muestra un mensaje
         echo '<div class="empty-cart-message">';
         echo '<p>Tu carrito está vacío.</p>';
         echo '</div>';
     } else {
+        echo '<div class="productos-title">';
+        echo '<h2>Tus productos</h2>';
+        echo '</div>';
+
+
         foreach ($_SESSION['carrito'] as $idProducto => $cantidad) {
             $sql = "SELECT * FROM producto WHERE ID_Pto = '$idProducto'";
             $resultado = $conexion->query($sql);
@@ -214,23 +297,40 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
                     echo '<p class="product-description">' . $row['Descripcion'] . '</p>';
                     echo '<p class="product-price">$' . $row['Precio'] . '</p>';
                     echo '<p class="product-quantity">Cantidad: ' . $cantidad . '</p>';
+                    
+                    // Calcular subtotal por producto y mostrarlo
+                    $subtotalProducto = $row['Precio'] * $cantidad;
+                    echo '<p class="subtotal">Subtotal: $' . $subtotalProducto . '</p>';
+
                     // Botón para eliminar el producto del carrito
                     echo '<a href="?eliminar=' . $idProducto . '" class="btn btn-danger">Eliminar</a>';
                     echo '</div>'; // Cierre de product-details
                     echo '</div>'; // Cierre de product
+
+                    // Agregar el subtotal del producto al total a pagar
+                    $totalPagar += $subtotalProducto;
                 }
             }
         }
+
+        echo '<div class="total-pagar">';
+        echo '<p class="total-pagar-label">Total a pagar:</p>';
+        echo '<p class="total-pagar-amount">$' . $totalPagar . '</p>';
+        echo '</div>';
+
+        echo '<div class="pagar-button">';
+        echo '<a href="../../pages/pago.php" class="btn-pagar">Pagar</a>';
+        echo '</div>';
+
+        
     }
     ?>
 </div>
 
 
-
     
     <?php 
         $conexion->close();
-        // Otro contenido HTML o inclusión de footer
     ?>
 </body>
 </html>
