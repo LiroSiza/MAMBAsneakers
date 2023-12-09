@@ -82,6 +82,7 @@
             ?>
             <a href="../../pages/homee.php">Intentar de nuevo</a>
         </div>
-    </div>
+    </div> 
+
 </body>
 </html>
