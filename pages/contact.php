@@ -56,7 +56,7 @@
 
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
-                $mail->Body    = 'Hola ' . $name . ' ' .$apellido. ' con email ' .$email . '<br><br>Atendimos tu mensaje con el asunto: ' .$asunto. '<br><br>'. $message . '<br><br>Atenderemos tu solicitud en la brebedad, un saludo cordial!!!' ;
+                $mail->Body    = 'Hola ' . $name . ' ' .$apellido. ' con email ' .$email . '<br><br>Atendimos tu mensaje con el asunto: ' .$asunto. '<br><br>'. $message . '<br><br>Atenderemos tu solicitud en la brevedad, un saludo cordial!!!' ;
 
 
                 $mail->send();

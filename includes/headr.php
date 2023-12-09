@@ -19,6 +19,77 @@
                 margin-right: 0;
                 height: 30px;
             }       
+
+
+            /* Estilos para el modal */
+            .modal2 {
+                display: none;
+                position: fixed; /* Mantiene el modal fijo en la ventana */
+                top: 20px; /* Ajusta la distancia desde la parte superior */
+                right: 20px; /* Ajusta la distancia desde la derecha */
+                max-width: 380px; /* Establece el ancho máximo del modal */
+                background-color: rgba(255, 128, 0, 0.8); /* Color de fondo del modal */
+                border-radius: 8px; /* Agrega esquinas redondeadas */
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Agrega sombra al modal */
+                z-index: 1000; /* Asegura que esté por encima del resto del contenido */
+            }
+
+            /* Estilos para el contenido del modal */
+            .modal-content2 {
+                padding: 20px; /* Añade espacio alrededor del contenido */
+                color: white; /* Cambia el color del texto dentro del modal */
+                font-family: Arial, sans-serif; /* Establece la fuente del texto */
+            }
+
+
+            .modal2 {
+                /* Otros estilos del modal */
+                overflow-y: auto; /* Agrega una barra de desplazamiento vertical cuando sea necesario */
+                max-height: 80vh; /* Altura máxima del modal para evitar desbordamiento */
+            }
+
+            .modal-content2 {
+                padding: 20px;
+                width: 90%; /* Ajusta el ancho del contenido */
+                margin: 0 auto; /* Centra el contenido horizontalmente */
+            }
+
+            .modal-content2 button {
+                background-color: #3498db;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            .modal-content2 button:hover {
+                background-color: #2980b9;
+            }
+
+            /* Estilo para el icono de cierre "X" */
+            .cerrar-modal {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                cursor: pointer;
+                font-size: 24px;
+                color: #333;
+                border: 1px solid #ccc;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s ease;
+            }
+
+            .cerrar-modal:hover {
+                background-color: #eee;
+            }
+
         </style>
     </head>
     <body id="body">
@@ -50,42 +121,65 @@
                 ?>
                 
                 <li class="navL-2">
-                    <a href="../resources/php/carrito.php" class="links">
+                    <a href="#" onclick="abrirModal();" class="links">
                         <div class="carrito">
                             <img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px" style="float: left; margin-right: 10px;" />
                             <p id="numCarrito" style="float: left; margin-right: 10px;">
-                            <?php
-                                $servidor = 'localhost';
-                                $cuenta = 'root';
-                                $password = '';
-                                $bd = 'mamba';
+                                <?php
+                                    $servidor = 'localhost';
+                                    $cuenta = 'root';
+                                    $password = '';
+                                    $bd = 'mamba';
 
-                                $connect = new mysqli($servidor, $cuenta, $password, $bd);
+                                    $connect = new mysqli($servidor, $cuenta, $password, $bd);
 
-                                if ($connect->connect_error) {
-                                    die("Conexión fallida: " . $connect->connect_error);
-                                }
+                                    if ($connect->connect_error) {
+                                        die("Conexión fallida: " . $connect->connect_error);
+                                    }
 
-                                $idCliente = $_SESSION['ID'];
+                                    $idCliente = $_SESSION['ID'];
 
-                                //Aqui hace la consulta con las condiciones
-                                $consulta = "SELECT * FROM venta WHERE ID_Cte = '$idCliente' AND Cart = 1";
-                                $res = $connect->query($consulta);
+                                    // Aquí haces la consulta con las condiciones
+                                    $consulta = "SELECT * FROM venta WHERE ID_Cte = '$idCliente' AND Cart = 1";
+                                    $res = $connect->query($consulta);
 
+                                    if ($res) {
+                                        $numRegistros=0;
+                                        $numRegistros = $res->num_rows;
+                                        echo $numRegistros;
+                                    } else {
+                                        echo "Error en la consulta: " . $connect->error;
+                                    }
 
-                                if ($res) {
-                                    $numRegistros = $res->num_rows;
-                                    echo $numRegistros;
-                                } else {
-                                    echo "Error en la consulta: " . $connect->error;
-                                }
-
-                                $connect->close();
-                            ?>
+                                    $connect->close();
+                                ?>
                             </p>
                         </div>
                     </a>
                 </li>
+
+                <!-- Modal para mostrar el carrito -->
+                <div id="modal2" class="modal2" style="display: none;">
+                    <div class="modal-content2">
+                        <!-- Contenido del carrito -->
+                        <?php include('../resources/php/carrito.php'); ?>
+                        <!-- Botón para cerrar el modal -->
+                        <!-- <button onclick="cerrarModal();" class="cerrar-modal-btn">Cerrar</button> -->
+                        <!-- Icono "X" para cerrar el modal -->
+                        <span class="cerrar-modal" onclick="cerrarModal();">&#10006;</span>
+                    </div>
+                </div>
+
+                <!-- Script para abrir y cerrar el modal -->
+                <script>
+                    function abrirModal() {
+                        document.getElementById('modal2').style.display = 'block';
+                    }
+
+                    function cerrarModal() {
+                        document.getElementById('modal2').style.display = 'none';
+                    }
+                </script>
 
 
                 <?php
