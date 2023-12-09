@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../resources/css/homeBlock3.css">
     <link rel="stylesheet" href="../resources/css/estilosInicioRuben.css">
+    <link rel="stylesheet" href="../resources/css/popUpHome.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>MAMBA - Home</title>
 </head>
 <body>
@@ -56,6 +58,25 @@
             <a href="about.php"><button class="slBtn">Descubre Más</button></a>
         </div>
     </div>
+    <br><br>
+
+    <p class="animate__animated animate__heartBeat"><a href="#" onclick="openPopup(); return false;">¡Haz clic para recibir un cupón de descuento!</a></p>
+    <div id="popup-container">
+        <div id="popup-content">
+            <span id="close-btn" onclick="closePopup()">&times;</span>
+            <img src="../resources/img/Cupon SNAKE232.jpg" alt="" width="300">
+        </div>
+    </div>
+    <script>
+        function openPopup() {
+            document.getElementById("popup-container").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup-container").style.display = "none";
+        }
+    </script>
+    
     <br><br>
     <center>
         <div class="contenedor">
@@ -114,6 +135,8 @@
         </div>
         <a href="pago.php">Here</a>
     </div>
+    
+    
     <?php
         include('../includes/footer.html');
     ?>
