@@ -171,6 +171,9 @@
             $item = $item+1;
         } ?>
     </div> 
+    <?php
+        include('../resources/php/suscription.php');
+    ?>
     <?php 
         $conexion->close();
     

@@ -115,6 +115,9 @@
         <a href="pago.php">Here</a>
     </div>
     <?php
+        include('../resources/php/suscription.php');
+    ?>
+    <?php
         include('../includes/footer.html');
     ?>
 </body>
