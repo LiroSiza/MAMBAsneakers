@@ -140,3 +140,17 @@ hr{
     border-radius: 50px;
     min-width: 500px;
 }
+
+#btnGraficas {
+    background-color: white;
+    color: rgb(255, 128, 0);
+    border: 5px solid rgb(255, 128, 0);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#btnGraficas:hover {
+    background-color: rgb(255, 128, 0);
+    color: white;
+    transform: scale(1.1); /* Hace que el botón sea un 10% más grande en hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Añade una sombra suave en hover */
+}

@@ -57,6 +57,7 @@
 
         </div>
     </div>
+    <center><a href="graficas.php"><button id="btnGraficas">Acceder a las Estadisticas</button></a></center>
     <br><br><br>
     
     <?php

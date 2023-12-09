@@ -80,9 +80,10 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: 60px;
 }
 
 input[type="submit"]:hover {
     background-color: #ff6600;
 }
+
