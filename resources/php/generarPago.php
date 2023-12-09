@@ -4,7 +4,7 @@
     session_start();
 
 
-    /*$servidor='localhost';
+    $servidor='localhost';
     $cuenta='root';
     $password='';
     $bd='mamba';
@@ -26,7 +26,7 @@
     $stmt->execute();
     $res = $stmt->get_result();
     $stmt->close();
-    $conexion->close();*/
+    $conexion->close();
 
 
 

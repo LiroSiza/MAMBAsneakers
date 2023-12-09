@@ -138,7 +138,7 @@
                                     <?php 
                                         if(isset($_POST["cupon"])){
                                             $cupon=$_POST["cupon"];
-                                            if($cupon=="MAMBA10" || $cupon=="MAMBA20" || $cupon=="MAMBA30"){
+                                            if($cupon=="MAMBA30" || $cupon=="SNAKE232" || $cupon=="CHICKENLITTLE"){
                                                 echo "$-".number_format($total*.3, 2, '.', ',')."(-30%)";
                                                 $_SESSION["cupon"]=0.3;
                                                 $total*=(0.6);
@@ -364,6 +364,7 @@
                         <p>$110 Entrega estándar</p>
                         <small id="smaTwo">Recíbelo antes de:
                         <?php
+                        
                             $timezone = new DateTimeZone('America/Mexico_City');
                             $currentDate = new DateTime('now', $timezone);
                             $futureDate = $currentDate->add(new DateInterval('P2D'));
@@ -438,7 +439,7 @@
             icon: "success",
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = '../pages/homee.php'; 
+                window.location.href = '../resources/php/generarPago.php'; 
             }
         });
         
