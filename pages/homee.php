@@ -133,7 +133,6 @@
             </div>
 
         </div>
-        <a href="pago.php">Here</a>
     </div>
     
     
