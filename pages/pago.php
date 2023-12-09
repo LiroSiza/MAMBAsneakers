@@ -364,6 +364,7 @@
                         <p>$110 Entrega estándar</p>
                         <small id="smaTwo">Recíbelo antes de:
                         <?php
+                        
                             $timezone = new DateTimeZone('America/Mexico_City');
                             $currentDate = new DateTime('now', $timezone);
                             $futureDate = $currentDate->add(new DateInterval('P2D'));
