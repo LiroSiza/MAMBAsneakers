@@ -29,7 +29,7 @@
     $conexion->close();
 
 
-
+    $_SESSION['carrito'] = array(); // Vaciar el carrito
 
     header("Location: ../../pages/homee.php");
 
