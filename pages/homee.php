@@ -18,11 +18,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;800&family=PT+Serif&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>MAMBA - Home</title>
 </head>
 <body>
     <?php
         include('../includes/headr.php');
+
+        if(isset($_GET["error"])){
+            ?>
+            <script>
+                Swal.fire({
+                    title: 'Datos Erróneos',
+                    imageUrl: "../resources/img/bailey.png",
+                    imageHeight: 100,
+                    confirmButtonColor: '#e36124',
+                });
+            </script>
+            <?php
+            
+                        
+
+        }
+
     ?>
     <br><br>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

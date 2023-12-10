@@ -141,7 +141,7 @@
                                             if($cupon=="MAMBA30" || $cupon=="SNAKE232" || $cupon=="CHICKENLITTLE"){
                                                 echo "$-".number_format($total*.3, 2, '.', ',')."(-30%)";
                                                 $_SESSION["cupon"]=0.3;
-                                                $total*=(0.6);
+                                                $total*=(0.7);
                                             }
                                             else{
                                                 echo "0%";
