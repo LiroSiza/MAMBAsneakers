@@ -34,3 +34,4 @@ function mostrarMensaje(opciones) {
         text: opciones.texto || 'Mensaje por defecto',
     });
 }
+
