@@ -40,7 +40,7 @@
   <div id="divPsub"><p>Ingresa tu dirección de correo electrónico para estar al tanto de nuestras últimas novedades y ofertas especiales.</p></div>
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="subscriptionForm">
     <input type="email" id="emailFormStyle" name="email" placeholder="Tu correo electrónico" required>
-    <button type="submit" id="btnSuscribe">Suscribirse</button>
+    <button type="submit" id="btnSuscribe" name="sub" value="sub">Suscribirse</button>
   </form>
 </div>
 
@@ -55,6 +55,7 @@ require '../dependencies/PHPMailer-master/src/PHPMailer.php';
 require '../dependencies/PHPMailer-master/src/SMTP.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
+      if(isset($_POST["sub"])){
         $email=$_POST["email"];
         $parts = explode("@", $email);
         $name = $parts[0];
@@ -116,6 +117,7 @@ require '../dependencies/PHPMailer-master/src/SMTP.php';
         }
         // header("Location: homee.php");
         // exit();
+      } 
     } 
 ?>
 

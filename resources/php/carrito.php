@@ -139,8 +139,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
         }
 
         $conexion->close();
-        header('Refresh: 0; URL = ../pages/shop.php'); 
     }
+    
 }
 
 
