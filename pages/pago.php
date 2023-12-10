@@ -193,7 +193,7 @@
                                             echo "20%";
                                             $tax=0.2;
                                             $_SESSION["tax"]=0.2;
-                                        }else{
+                                        }else if($_POST["pais"]=="0"){
                                             echo "16%";
                                             $tax=0.16;
                                             $_SESSION["tax"]=0.16;
@@ -323,7 +323,7 @@
                     <div class="mb-3 paisS">
                         <label for="country" class="form-label">País</label>                    
                         <select class="form-select" id="country" name="pais" aria-label="Default select example" required>
-                            <option selected>México</option>
+                            <option value="0" selected>México</option>
                             <option value="1">USA</option>
                             <option value="2">Canada</option>
                         </select>
