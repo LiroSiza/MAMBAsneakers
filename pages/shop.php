@@ -142,8 +142,7 @@
                 $sql = "INSERT INTO venta (ID_Cte, ID_Prod, Cantidad, Cart) VALUES ('$idCliente', '$idProducto', '$cantidad', '$cart')";
             
                 if ($conexion->query($sql) === TRUE) {
-                    echo '<script src="../resources/js/shop.js"></script>';
-                    echo '<script>var escenario = "agregarCarrito";</script>';
+                    header('refresh:0; url=shop.php');
                 } else {
                     echo '<script src="../resources/js/shop.js"></script>';
                     echo '<script>var escenario = "agregarError";</script>';
