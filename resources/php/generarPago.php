@@ -3,7 +3,7 @@
 ob_start();
 session_start();
 
-require('C:\xampp\htdocs\cursoPHP\programas\MAMBASNEAKERS\MAMBAsneakers\dependencies\fpdf\fpdf.php');
+require('../../dependencies/fpdf/fpdf.php');
 
 $servidor = 'localhost';
 $cuenta = 'root';
@@ -67,7 +67,7 @@ $pdf = new FPDF();
 
 $pdf->AddPage();
 
-$pdf->Image('C:\xampp\htdocs\cursoPHP\programas\MAMBASNEAKERS\MAMBAsneakers\resources\img\logoMAMBA.png', 95, 10, 0, 22,); // Ajusta la ruta y las dimensiones del logo según sea necesario
+$pdf->Image('../img/logoMAMBA.png', 95, 10, 0, 22,); // Ajusta la ruta y las dimensiones del logo según sea necesario
 
 // Espaciado después del logo
 $pdf->Ln(21);
@@ -151,7 +151,7 @@ $pdf->Cell(0, 10, 'Metodo de pago: ' . utf8_decode($metodoPago), 0, 1);
 $pdf->Cell(0, 10, 'Correo: ' . utf8_decode($correoUsuario), 0, 1);
 
 if (empty($_SESSION["numTarje"])) {
-    $pdf->Image('C:\xampp\htdocs\cursoPHP\programas\MAMBASNEAKERS\MAMBAsneakers\resources\img\qr.png', 80, $pdf->GetY() + 5, 50);
+    $pdf->Image('../img/qr.png', 80, $pdf->GetY() + 5, 50);
 }
 
 // Salida del PDF
@@ -163,9 +163,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'C:\xampp\htdocs\cursoPHP\programas\MAMBASNEAKERS\MAMBAsneakers\dependencies\PHPMailer-master\src\Exception.php';
-require 'C:\xampp\htdocs\cursoPHP\programas\MAMBASNEAKERS\MAMBAsneakers\dependencies\PHPMailer-master\src\PHPMailer.php';
-require 'C:\xampp\htdocs\cursoPHP\programas\MAMBASNEAKERS\MAMBAsneakers\dependencies\PHPMailer-master\src\SMTP.php';
+require '../../dependencies/PHPMailer-master/src/Exception.php';
+require '../../dependencies/PHPMailer-master/src/PHPMailer.php';
+require '../../dependencies/PHPMailer-master/src/SMTP.php';
 
     $mail = new PHPMailer(true);
     $mail->SMTPDebug = 0;                                   //Enable verbose debug output
