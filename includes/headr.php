@@ -130,29 +130,52 @@
                                     $cuenta = 'root';
                                     $password = '';
                                     $bd = 'mamba';
-
+                                    
                                     $connect = new mysqli($servidor, $cuenta, $password, $bd);
-
+                                    
                                     if ($connect->connect_error) {
                                         die("Conexión fallida: " . $connect->connect_error);
                                     }
-
+                                    
                                     $idCliente = $_SESSION['ID'];
-
-                                    // Aquí haces la consulta con las condiciones
-                                    $consulta = "SELECT * FROM venta WHERE ID_Cte = '$idCliente' AND Cart = 1";
-                                    $res = $connect->query($consulta);
-
-                                    if ($res) {
-                                        $numRegistros=0;
-                                        $numRegistros = $res->num_rows;
-                                        echo $numRegistros;
-                                    } else {
-                                        echo "Error en la consulta: " . $connect->error;
+                                    
+                                    if (isset($_GET['accion']) && $_GET['accion'] == 'agregar') {
+                                        $idProducto = $_GET['idProducto'];
+                                    
+                                        //aqui verifica si ya hay productos
+                                        $act = "SELECT COUNT(*) AS numProductos FROM venta WHERE ID_Cte = '$idCliente' AND Id_Prod = '$idProducto' AND Cart = 1";
+                                        $actResult = $connect->query($act);
+                                    
+                                        if (!$actResult) {
+                                            echo "Error al verificar el carrito: " . $connect->error;
+                                        } else {
+                                            $numProductos = $actResult->fetch_assoc()['numProductos'];
+                                            
+                                            //si no hay productos ahora si lo agrega
+                                            if ($numProductos == 0) {
+                                                $insertQuery = "INSERT INTO venta (Id_Prod, ID_Cte, Cart) VALUES ('$idProducto', '$idCliente', 1)";
+                                                $insertResult = $connect->query($insertQuery);
+                                    
+                                                if (!$insertResult) {
+                                                    echo "Error al agregar al carrito: " . $connect->error;
+                                                }
+                                            }
+                                    
+                                            ///aqui consulta la base y muestra el carrito sin repetidos
+                                            $consulta = "SELECT COUNT(DISTINCT Id_Prod) AS numProductos FROM venta WHERE ID_Cte = '$idCliente' AND Cart = 1";
+                                            $res = $connect->query($consulta);
+                                    
+                                            if ($res) {
+                                                $numRegistros = $res->fetch_assoc()['numProductos'];
+                                                echo $numRegistros;
+                                            } else {
+                                                echo "Error en la consulta: " . $connect->error;
+                                            }
+                                        }
                                     }
-
+                                    
                                     $connect->close();
-                                ?>
+                                    ?>
                             </p>
                         </div>
                     </a>
