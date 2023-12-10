@@ -193,6 +193,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
         text-decoration: none;
         transition: background-color 0.3s ease-in-out;
     }
+    .btn2 {
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s ease-in-out;
+    }
 
     /* Efecto de hover sobre el botón de eliminar */
     .btn:hover {
@@ -331,7 +338,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
                     echo '<p class="subtotal">Subtotal: $' . $subtotalProducto . '</p>';
 
                     // Botón para eliminar el producto del carrito
-                    echo '<a href="?eliminar=' . $idProducto . '" class="btn btn-secondary">Eliminar</a>';
+                    echo '<a href="?eliminar=' . $idProducto . '" class="btn2 btn-secondary">Eliminar</a>';
                     echo '</div>'; // Cierre de product-details
                     echo '</div>'; // Cierre de product
 
