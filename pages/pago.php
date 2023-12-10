@@ -189,12 +189,12 @@
                             <td class="left top" >
                                 <p>Impuesto ( 
                                     <?php 
-                                        if($_POST["pais"]=="USA"){ 
+                                        if($_POST["pais"]=="1"){ 
                                             echo "0%"; // MERICA BABYYY
                                             $tax=0;
                                             $_SESSION["tax"]=0;
 
-                                        }else if($_POST["pais"]=="Canada"){
+                                        }else if($_POST["pais"]=="2"){
                                             echo "20%";
                                             $tax=0.2;
                                             $_SESSION["tax"]=0.2;
