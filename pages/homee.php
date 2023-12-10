@@ -73,6 +73,7 @@
         }
 
         function closePopup() {
+            console.log('Cerrando el popup');
             document.getElementById("popup-container").style.display = "none";
         }
     </script>
@@ -137,9 +138,6 @@
     </div>
     
     
-    <?php
-        include('../resources/php/suscription.php');
-    ?>
     <?php
         include('../includes/footer.html');
     ?>
