@@ -86,12 +86,7 @@
         $_SESSION["envio"]=0;
         $_SESSION["cupon"]=0;
         $_SESSION["total"]=0;
-
-        
-        
-        
-
-
+    
 
         if(isset($_POST["submit"])){
             $_SESSION["calle"]=$_POST["calle"];
