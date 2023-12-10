@@ -121,7 +121,7 @@
                 ?>
                 
                 <li class="navL-2">
-                    <a href="#" onclick="abrirModal();" class="links">
+                    <div onclick="abrirModal();" class="links">
                         <div class="carrito">
                             <img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px" style="float: left; margin-right: 10px;" />
                             <p id="numCarrito" style="float: left; margin-right: 10px;">
@@ -155,7 +155,7 @@
                                 ?>
                             </p>
                         </div>
-                    </a>
+                    </div>
                 </li>
 
                 <!-- Modal para mostrar el carrito -->

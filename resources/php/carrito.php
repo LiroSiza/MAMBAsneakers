@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
 
         // Actualizar la tabla de ventas en la base de datos (eliminar el registro)
         $idCliente = $_SESSION['ID']; // Asegúrate de tener el ID del cliente en la sesión
-        $sql = "DELETE FROM venta WHERE ID_Cte = '$idCliente' AND ID_Prod = '$idEliminar' AND Cart = 1";
+        $sql = "DELETE FROM venta WHERE ID_Cte = '$idCliente' AND ID_Prod = '$idEliminar' AND Cart = 1 LIMIT 1";
         if ($conexion->query($sql) !== TRUE) {
             echo "Error al eliminar el producto del carrito: " . $conexion->error;
         }
@@ -139,7 +139,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
         }
 
         $conexion->close();
+        header('Refresh: 0; URL=../pages/shop.php');
     }
+    
 }
 
 
