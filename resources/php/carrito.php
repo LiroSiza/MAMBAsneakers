@@ -257,10 +257,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
     .productos-title h2 {
         font-size: 28px;
         color: #fff;
-        background-color: #3498db;
         padding: 10px 20px;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #fff;
         margin: 14px;
         display: inline-block;
     }
@@ -274,7 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
     .btn-pagar {
         display: inline-block;
         padding: 10px 20px;
-        background-color: green;
+        background-color: orange;
         color: #fff;
         text-decoration: none;
         border-radius: 5px;
