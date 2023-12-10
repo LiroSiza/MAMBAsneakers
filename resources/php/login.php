@@ -91,8 +91,8 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
             
             $stmt->close();
             $conexion->close();
-            header("Location: incorrecto.php");
-            
+            //header("Location: incorrecto.php");
+            header("Location: ../../pages/homee.php?error=1");
             
 
         }
@@ -100,6 +100,6 @@ $config['base_url'] = 'http://' . $_SERVER["SERVER_NAME"]; //nombre del servidor
         $stmt->close();
         $conexion->close();
         
-        header("Location: incorrecto.php");
+        header("Location: ../../pages/homee.php?error=1");
 
     ?>
