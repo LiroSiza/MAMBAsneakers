@@ -110,7 +110,7 @@
                     </tr>
                     <tr>
                         <div class="inputsForm form-group emailS ffEE">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Dirección de correo electrónico" name="email" require>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Dirección de correo electrónico" name="email" require style="height: 45px;border-radius: 30px;">
                             <small id="emailHelp" class="form-text text-muted">.    Nunca compartiremos tu correo con alguien más</small>
                         </div>
                     </tr>
