@@ -2,9 +2,37 @@
     // session_start();
 
     // Verificar si la sesión del carrito existe, si no, crearla
-    if (!isset($_SESSION['carrito'])) {
-        $_SESSION['carrito'] = array();
+if (!isset($_SESSION['carrito'])) {
+    $_SESSION['carrito'] = array();
+
+    // Conexión a la base de datos
+    $servidor = 'localhost';
+    $cuenta = 'root';
+    $password = '';
+    $bd = 'mamba';
+
+    $conexion = new mysqli($servidor, $cuenta, $password, $bd);
+
+    if ($conexion->connect_error) {
+        die("Conexión fallida: " . $conexion->connect_error);
     }
+
+    // Obtener productos con Cart = 1
+    $sqlProductosCart = "SELECT Id_Prod FROM venta WHERE Cart = 1";
+    $resultProductosCart = $conexion->query($sqlProductosCart);
+
+    if ($resultProductosCart !== FALSE && $resultProductosCart->num_rows > 0) {
+        while ($row = $resultProductosCart->fetch_assoc()) {
+            $idProductoCart = $row['Id_Prod'];
+
+            // Agregar el producto al carrito
+            $_SESSION['carrito'][$idProductoCart] = 1; // Agregar con cantidad 1
+        }
+    }
+
+    $conexion->close();
+}
+
 
   // Agregar producto al carrito
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["idProducto"])) {
