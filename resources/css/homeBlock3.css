@@ -59,6 +59,11 @@
     color: rgb(255, 128, 0);
 }
 
+.Mas:hover{
+    cursor: pointer;
+    color: rgb(255, 152, 49);
+}
+
 .tenisA{
     width: 120%;
 }
