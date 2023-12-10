@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 10%;
 }
 .titlePay{
     font-family: 'Manrope', sans-serif;
@@ -17,7 +17,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid rgb(255, 128, 0);
     width: 50%
 }
 
@@ -48,7 +47,6 @@
 }
 
 .pago{
-    border: 1px solid rgb(255, 128, 0);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -101,7 +99,6 @@
     width: 50%;
     margin-top: 2%;
     margin-bottom: 2%;
-    border: 1px solid rgb(255, 128, 0);
 }
 
 .inputCupon{
@@ -117,7 +114,6 @@
     width: 50%;
     margin-top: 2%;
     margin-bottom: 2%;
-    border: 1px solid rgb(255, 128, 0);
 }
 
 .opciones{
@@ -165,7 +161,7 @@
 
 .continuar{
     color: white;
-    background-color: rgb(255, 128, 0);
+    background-color: black;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -178,46 +174,130 @@
     font-size: 30px;
 }
 
+.continuarEnd{
+    width: 60%;
+}
+
 .continuar:hover{
     cursor: pointer;
-    background-color: black;
+    background-color: rgb(255, 128, 0);
     color: white;
 }
+
+/*TABLA*/
+
+.tituloPago{
+    justify-content: flex-start;
+    width: 80%
+}
+
+.tablePrices{
+    width: 80%;
+
+}
+.tabTotal{
+    font-family: 'Manrope', sans-serif;
+    margin-top: 5%;
+    border-radius: 10px;
+    width: 100%;
+}
+
 
 .tabTotal td{
     margin-right: 10%;
 }
 
-.tabTotal{
-    font-family: 'Manrope', sans-serif;
-    margin-top: 5%;
-    border-radius: 10px;
+        .tabTotal th{
+            font-weight: 800;
+            font-size: 20px;
+            background-color: rgb(255, 128, 0);
+            color: white;
+            text-align: center;
+        }
+        
+
+        .tabTotal td, .tabTotal th{
+            padding: 10px;
+            border: 1px solid rgb(255, 128, 0);
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .tabTotal .end{
+            background-color: rgb(255, 128, 0);
+            color: white;
+            font-weight: 800;
+        }
+.cifras{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+        .tabEnd{
+            font-family: 'Manrope', sans-serif;
+            margin-top: 5%;
+            border-radius: 10px;
+            width: 50%;
+        }
+        .tabEnd th{
+            font-weight: 800;
+            font-size: 20px;
+            background-color: rgb(255, 128, 0);
+            color: white;
+            text-align: center;
+        }
+
+        .tabEnd td, .tabEnd th{
+            padding: 10px;
+            border: 1px solid rgb(255, 128, 0);
+            border-collapse: collapse;
+            
+        }
+        .tabEnd td.left{
+            text-align: left;
+            padding-left: 10%;
+            border-right: 0px;
+        }
+        .tabEnd td.right{
+            text-align: right;
+            padding-right: 10%;
+            border-left: 0px;
+        }
+
+        .tabEnd .bottom{
+            border-bottom: 0px;
+        }
+
+        .tabEnd .top{
+            border-top: 0px;
+        }
+
+        .tabEnd .end{
+            
+            font-weight: 800;
+        }
+
+    .tabEnd td.cont{
+        text-align: right;
+        margin-top: 5%;
+    }
+
+.finish{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.tabTotal th{
+.icono{
+    margin-left: 7%;
+    font-size: 30px;
     font-weight: 800;
-    font-size: 20px;
-    color: rgb(255, 128, 0);
-    text-align: center;
-}
-.tabTotal .c{
-    text-align: center;
-}
-.tabTotal .r{
-    border-right: 0px;
-}
-.tabTotal .l{
-    border-left: 0px;
 }
 
-.tabTotal td, .tabTotal th{
-    padding: 10px;
-    border: 1px solid rgb(255, 128, 0);
-    border-collapse: collapse;
-}
+        
 
-.tabTotal .end{
-    background-color: rgb(255, 128, 0);
-    color: white;
-    font-weight: 800;
-}
+       
+        

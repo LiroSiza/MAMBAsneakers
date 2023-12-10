@@ -26,9 +26,24 @@
     cursor: pointer;
     color: black;
   }
-  p{
+  .animate__animated{
      font-family:sans-serif;
      text-align: center;
      font-weight: bold;
      font-size: 30px;
+  }
+
+  #lnkCupon{
+    color: black;
+  }
+
+  #lnkCupon:hover{
+    color:grey;
+    text-decoration: none;
+    font-size: 33px;
+  }
+
+  #dvLinkCupon{
+    width: 100%;
+    height: 50px;
   }

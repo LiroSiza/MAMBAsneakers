@@ -29,9 +29,9 @@
     $conexion->close();
 
 
+    $_SESSION['carrito'] = array(); // Vaciar el carrito
 
-
-    header("Location: ../../pages/home.php");
+    header("Location: ../../pages/homee.php");
 
 
 
