@@ -220,7 +220,7 @@ if (isset($_POST['valorID'])) {
     </div>
     <div id="contenedor-2">
         <div>
-            <img src="../resources/img/productos/<?php echo htmlspecialchars($data['Imagen']); ?>" alt="imagen de producto">
+            <img src="../resources/img/shopimages/<?php echo htmlspecialchars($data['Imagen']); ?>" alt="imagen de producto">
         </div>
     </div>
     </div>
