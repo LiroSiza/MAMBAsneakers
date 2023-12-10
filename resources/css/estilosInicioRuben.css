@@ -156,6 +156,11 @@ body{
 
 }
 
+.recDiv:hover{
+    cursor: pointer;
+    background-color: rgb(255, 152, 49);
+}
+
 /* RESPONSIVE DESIGGN SECDIV */
 
 @media screen and (max-width: 1200px) {

@@ -59,12 +59,13 @@
         </div>
     </div>
     <br><br>
-
-    <p class="animate__animated animate__heartBeat"><a href="#" onclick="openPopup(); return false;">¡Haz clic para recibir un cupón de descuento!</a></p>
+    <div id="dvLinkCupon">
+        <p class="animate__animated animate__heartBeat"><a href="#" onclick="openPopup(); return false;" id="lnkCupon">¡Haz click para recibir un cupón de descuento!</a></p>
+    </div>
     <div id="popup-container">
         <div id="popup-content">
             <span id="close-btn" onclick="closePopup()">&times;</span>
-            <img src="../resources/img/Cupon SNAKE232.jpg" alt="" width="300">
+            <img src="../resources/img/Cupon_SNAKE232.jpg" alt="" width="300">
         </div>
     </div>
     <script>
