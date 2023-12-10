@@ -49,7 +49,15 @@ $calle = isset($_SESSION["calle"]) ? $_SESSION["calle"] : '';
 $colonia = isset($_SESSION["colonia"]) ? $_SESSION["colonia"] : '';
 $ciudad = isset($_SESSION["ciudad"]) ? $_SESSION["ciudad"] : '';
 $CP = isset($_SESSION["CP"]) ? $_SESSION["CP"] : '';
-$pais = isset($_SESSION["pais"]) ? $_SESSION["pais"] : '';
+
+$pais_codigo = isset($_SESSION["pais"]) ? $_SESSION["pais"] : '';
+$paises = array(
+    '0' =>'Mexico',
+    '1' => 'Estados Unidos',
+    '2' => 'Canada',
+    // Agrega más países según sea necesario
+);
+$pais = isset($paises[$pais_codigo]) ? $paises[$pais_codigo] : '';
 
 
 $direccion = $calle . ', ' . $colonia . ', ' . $ciudad . ', ' . $CP . ', ' . $pais;
@@ -155,7 +163,7 @@ if (empty($_SESSION["numTarje"])) {
 }
 
 // Salida del PDF
-$pdf->Output('D', 'resumen_compra.pdf'); 
+$pdf->Output('I', 'resumen_compra.pdf'); 
 $_SESSION['carrito'] = array(); // Vaciar el carrito
 
 
