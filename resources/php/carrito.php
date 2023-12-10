@@ -347,7 +347,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
         echo '</div>';
 
         echo '<div class="pagar-button">';
-        echo '<a href="../pages/pago.php" class="btn-pagar">Pagar</a>';
+        echo '<a href="../pages/pago.php" class="btn btn-danger">Pagar</a>';
         echo '</div>';
 
         
