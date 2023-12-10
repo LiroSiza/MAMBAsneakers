@@ -257,9 +257,45 @@
             <h1 class="titlePay">Proceder al Pago</h1>
         </div>
 
+        <div class="pago">
+            <div class="t">
+                <p class="pasos">1 Método de pago</p>
+            </div>
+            <div class="opciones">
+                    <button id="v" class="visa" onclick="card('m')"><img src="../resources/img/MasterCard_Logo.svg.png" width="100px" alt=""></button>
+                    <button id="m" class="mastercard" onclick="card('v')"><img src="../resources/img/visa.png" width="100px" alt=""></button>
+                    <button id="o" class="OXXO" onclick="oxxo()"><img src="../resources/img/Oxxo_Logo.svg.png" width="100px" alt=""></button>
+                    <button id="b" class="back" onclick="back()">Back</button>
+            </div>
+            <div class="datos">
+                
+                <div id="oxxo">
+                    <img width="200px" src="../resources/img/qr.png" alt="">
+                </div>
+                <div id="card">
+                    <div class="formDos">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
+                            <input type="text" name="numTarje" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Nombre en la tarjeta</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="phoneNumber" name="nomTarj"  >                
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Fecha de vencimiento</label>
+                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="phoneNumber" name="year" min="2023" max="2030" placeholder="Año" >
+                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="phoneNumber" name="mes" min="1" max="12" placeholder="Mes" >                
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="direccion">
             <div class="direccionEnvio">
-                <p class="pasos">1 Dirección de envío</p>
+                <p class="pasos">2 Dirección de envío</p>
             </div>
             <div class="formDireccion">
                 <div class="formUno">
@@ -301,41 +337,7 @@
             </div>
         </div>
 
-        <div class="pago">
-            <div class="t">
-                <p class="pasos">2 Método de pago</p>
-            </div>
-            <div class="opciones">
-                    <button id="v" class="visa" onclick="card('m')"><img src="../resources/img/MasterCard_Logo.svg.png" width="100px" alt=""></button>
-                    <button id="m" class="mastercard" onclick="card('v')"><img src="../resources/img/visa.png" width="100px" alt=""></button>
-                    <button id="o" class="OXXO" onclick="oxxo()"><img src="../resources/img/Oxxo_Logo.svg.png" width="100px" alt=""></button>
-                    <button id="b" class="back" onclick="back()">Back</button>
-            </div>
-            <div class="datos">
-                
-                <div id="oxxo">
-                    <img width="200px" src="../resources/img/qr.png" alt="">
-                </div>
-                <div id="card">
-                    <div class="formDos">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Numero de tarjeta</label>
-                            <input type="text" name="numTarje" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Nombre en la tarjeta</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="phoneNumber" name="nomTarj"  required>                
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Fecha de vencimiento</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="phoneNumber" name="year" min="2023" max="2030" placeholder="Año" required>
-                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" id="phoneNumber" name="mes" min="1" max="12" placeholder="Mes" required>                
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div class="cupon">
             <div class="t">
                 <p class="pasos">3 Código en Cupón</p>
