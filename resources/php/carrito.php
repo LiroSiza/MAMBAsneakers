@@ -338,7 +338,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["eliminar"])) {
                     echo '<p class="subtotal">Subtotal: $' . $subtotalProducto . '</p>';
 
                     // Botón para eliminar el producto del carrito
-                    echo '<a href="?eliminar=' . $idProducto . '" class="btn2 btn-secondary">Eliminar</a>';
+                    echo '<a href="?eliminar=' . $idProducto . '" class="btn btn2 btn-secondary">Eliminar</a>';
                     echo '</div>'; // Cierre de product-details
                     echo '</div>'; // Cierre de product
 
