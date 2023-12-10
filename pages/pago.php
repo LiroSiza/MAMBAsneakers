@@ -86,11 +86,22 @@
         $_SESSION["envio"]=0;
         $_SESSION["cupon"]=0;
         $_SESSION["total"]=0;
+
+        
+        
         
 
 
 
         if(isset($_POST["submit"])){
+            $_SESSION["calle"]=$_POST["calle"];
+            $_SESSION["colonia"]=$_POST["colonia"];
+            $_SESSION["ciudad"]=$_POST["ciudad"];
+            $_SESSION["CP"]=$_POST["CP"];
+            $_SESSION["pais"]=$_POST["pais"];
+            if(isset($_POST["numTarje"])){
+                $_SESSION["numTarje"]=substr($_POST["numTarje"], -4);
+            }
 
     ?>
             <div class="total bodyPago">
