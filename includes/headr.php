@@ -123,7 +123,7 @@
                 <li class="navL-2">
                     <div onclick="abrirModal();" class="links">
                         <div class="carrito">
-                            <img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px" style="float: left; margin-right: 10px;" />
+                            <img id="bagShop" src="../resources/img/iconos/bagShop.ico" width="25px" style="float: left; margin-right: 10px; cursor: pointer;" />
                             <p id="numCarrito" style="float: left; margin-right: 10px;">
                                 <?php
                                     $servidor = 'localhost';
