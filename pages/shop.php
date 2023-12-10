@@ -264,8 +264,7 @@
         <script>
             function agregar(idProducto, existencias){
                 if(existencias>0){
-                    //  se agrego $accion=agregar para arreglar el bug del carrito, se manda llamar por el metodo get
-                    window.location.href = '?idProducto=' + idProducto + '&accion=agregar';
+                    window.location.href = '?idProducto=' + idProducto;
                 }else{
                     alert ('Producto agotado');
                 }
