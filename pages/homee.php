@@ -83,7 +83,7 @@
     <div id="popup-container">
         <div id="popup-content">
             <span id="close-btn" onclick="closePopup()">&times;</span>
-            <img src="../resources/img/Cupon_SNAKE232.jpg" alt="" width="300">
+            <img src="../resources/img/Cupon_SNAKE232_NUEVO.jpg" alt="" width="300">
         </div>
     </div>
     <script>
