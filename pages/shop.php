@@ -142,8 +142,7 @@
                 $sql = "INSERT INTO venta (ID_Cte, ID_Prod, Cantidad, Cart) VALUES ('$idCliente', '$idProducto', '$cantidad', '$cart')";
             
                 if ($conexion->query($sql) === TRUE) {
-                    echo '<script src="../resources/js/shop.js"></script>';
-                    echo '<script>var escenario = "agregarCarrito";</script>';
+                    header('refresh:0; url=shop.php');
                 } else {
                     echo '<script src="../resources/js/shop.js"></script>';
                     echo '<script>var escenario = "agregarError";</script>';
@@ -265,7 +264,8 @@
         <script>
             function agregar(idProducto, existencias){
                 if(existencias>0){
-                    window.location.href = '?idProducto=' + idProducto;
+                    //  se agrego $accion=agregar para arreglar el bug del carrito, se manda llamar por el metodo get
+                    window.location.href = '?idProducto=' + idProducto + '&accion=agregar';
                 }else{
                     alert ('Producto agotado');
                 }
