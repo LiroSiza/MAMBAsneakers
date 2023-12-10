@@ -328,7 +328,7 @@
                     const left = (window.screen.width - windowWidth) / 2;
                     const top = (window.screen.height - windowHeight) / 2;
 
-                    const captchaWindow = window.open('../resources/captcha/captcha.php', 'captcha_window', 'width=500,height=320,top=' + top + ',left=' + left + ',resizable=no,toolbar=no,menubar=no,status=no');
+                    const captchaWindow = window.open('../resources/captcha/captcha.php', 'captcha_window', 'width=500,height=500,top=' + top + ',left=' + left + ',resizable=no,toolbar=no,menubar=no,status=no');
 
                     window.addEventListener('message', function(event) {
                         if (event.data === 'captchaVerified') {
