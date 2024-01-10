@@ -43,7 +43,7 @@
                 $mail->Host       = 'smtp.office365.com';               //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                               //Enable SMTP authentication
                 $mail->Username   = 'mamba_sneakers@outlook.com';       //SMTP username
-                $mail->Password   = 'AuburnFuckBama13!';                //SMTP password
+                $mail->Password   = '0';                                //SMTP password - deleted
                 $mail->SMTPSecure = 'STARTTLS';                         //Enable implicit TLS encryptionS
                 $mail->Port       = 587;                                //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS                             //SMTP password
 
